@@ -1,403 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>VIKA — Senior Designer Portfolio</title>
-
+  <title>Vika — Senior Designer Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:'Inter',sans-serif;
-      background:#050505;
-      color:white;
-      overflow-x:hidden;
-    }
-
-    .hero{
-      min-height:100vh;
-      padding:40px 6vw;
-      position:relative;
-      overflow:hidden;
-
-      background:
-      radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 30%),
-      radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 30%),
-      #050505;
-    }
-
-    nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:120px;
-    }
-
-    .logo{
-      font-size:1.1rem;
-      font-weight:800;
-      letter-spacing:3px;
-    }
-
-    .nav-links{
-      display:flex;
-      gap:40px;
-    }
-
-    .nav-links a{
-      text-decoration:none;
-      color:#d0d0d0;
-      transition:0.3s;
-    }
-
-    .nav-links a:hover{
-      color:white;
-    }
-
-    .hero-content{
-      max-width:850px;
-      position:relative;
-      z-index:2;
-    }
-
-    .eyebrow{
-      color:#9c9c9c;
-      margin-bottom:20px;
-      letter-spacing:1px;
-    }
-
-    h1{
-      font-size:clamp(3rem,8vw,7rem);
-      line-height:0.95;
-      font-weight:800;
-      margin-bottom:30px;
-    }
-
-    .description{
-      max-width:620px;
-      color:#bdbdbd;
-      line-height:1.8;
-      font-size:1.1rem;
-      margin-bottom:40px;
-    }
-
-    .hero-buttons{
-      display:flex;
-      gap:20px;
-    }
-
-    .primary-btn,
-    .secondary-btn{
-      padding:16px 28px;
-      border-radius:999px;
-      text-decoration:none;
-      transition:0.35s;
-    }
-
-    .primary-btn{
-      background:white;
-      color:black;
-      font-weight:600;
-    }
-
-    .primary-btn:hover{
-      transform:translateY(-3px);
-    }
-
-    .secondary-btn{
-      border:1px solid rgba(255,255,255,0.15);
-      color:white;
-      backdrop-filter:blur(20px);
-    }
-
-    .secondary-btn:hover{
-      background:rgba(255,255,255,0.06);
-    }
-
-    .floating-card{
-      position:absolute;
-      border-radius:40px;
-      backdrop-filter:blur(40px);
-      animation:float 6s ease-in-out infinite;
-    }
-
-    .card-1{
-      width:320px;
-      height:320px;
-
-      background:linear-gradient(
-      135deg,
-      rgba(255,255,255,0.12),
-      rgba(255,255,255,0.02)
-      );
-
-      top:10%;
-      right:8%;
-    }
-
-    .card-2{
-      width:180px;
-      height:180px;
-
-      background:linear-gradient(
-      135deg,
-      rgba(255,255,255,0.08),
-      rgba(255,255,255,0.01)
-      );
-
-      bottom:15%;
-      right:20%;
-    }
-
-    @keyframes float{
-      0%{
-        transform:translateY(0px);
-      }
-
-      50%{
-        transform:translateY(-20px);
-      }
-
-      100%{
-        transform:translateY(0px);
-      }
-    }
-
-    .featured-text{
-      padding:80px 6vw;
-      border-top:1px solid rgba(255,255,255,0.08);
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-
-    .featured-text p{
-      font-size:clamp(1.8rem,3vw,3.2rem);
-      max-width:1000px;
-      line-height:1.2;
-    }
-
-    .projects-section{
-      padding:120px 6vw;
-    }
-
-    .section-heading{
-      margin-bottom:60px;
-    }
-
-    .section-heading span{
-      color:#8d8d8d;
-      letter-spacing:1px;
-    }
-
-    .section-heading h2{
-      font-size:4rem;
-      margin-top:10px;
-    }
-
-    .projects-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:30px;
-    }
-
-    .project{
-      position:relative;
-      overflow:hidden;
-      border-radius:32px;
-      min-height:420px;
-      background:#111;
-      transition:0.5s;
-    }
-
-    .project.large{
-      min-height:560px;
-    }
-
-    .project:hover{
-      transform:translateY(-10px);
-    }
-
-    .project-image{
-      position:absolute;
-      inset:0;
-      transition:0.6s;
-    }
-
-    .project:hover .project-image{
-      transform:scale(1.05);
-    }
-
-    .gradient-1{
-      background:linear-gradient(135deg,#6b73ff,#000dff);
-    }
-
-    .gradient-2{
-      background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-    }
-
-    .gradient-3{
-      background:linear-gradient(135deg,#43cea2,#185a9d);
-    }
-
-    .gradient-4{
-      background:linear-gradient(135deg,#c471f5,#fa71cd);
-    }
-
-    .gradient-5{
-      background:linear-gradient(135deg,#f7971e,#ffd200);
-    }
-
-    .gradient-6{
-      background:linear-gradient(135deg,#232526,#414345);
-    }
-
-    .project-info{
-      position:absolute;
-      bottom:30px;
-      left:30px;
-      z-index:2;
-    }
-
-    .project-info span{
-      color:#d7d7d7;
-    }
-
-    .project-info h3{
-      font-size:2rem;
-      margin-top:10px;
-    }
-
-    .about-section{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:80px;
-      padding:120px 6vw;
-    }
-
-    .about-left span{
-      color:#8d8d8d;
-    }
-
-    .about-left h2{
-      margin-top:20px;
-      font-size:3rem;
-      line-height:1.1;
-    }
-
-    .about-right p{
-      color:#cfcfcf;
-      line-height:1.8;
-      margin-bottom:50px;
-    }
-
-    .stats{
-      display:flex;
-      gap:40px;
-    }
-
-    .stats h3{
-      font-size:2rem;
-    }
-
-    .stats p{
-      color:#8d8d8d;
-      margin-top:10px;
-    }
-
-    .quote-section{
-      padding:160px 6vw;
-      text-align:center;
-    }
-
-    .quote-section h2{
-      font-size:clamp(2rem,5vw,5rem);
-      line-height:1.1;
-    }
-
-    .contact-section{
-      padding:120px 6vw;
-      text-align:center;
-    }
-
-    .contact-section span{
-      color:#8d8d8d;
-    }
-
-    .contact-section h2{
-      font-size:4rem;
-      margin:20px 0 40px;
-    }
-
-    .contact-button{
-      display:inline-block;
-      padding:18px 34px;
-      border-radius:999px;
-      background:white;
-      color:black;
-      text-decoration:none;
-      font-weight:600;
-      transition:0.3s;
-    }
-
-    .contact-button:hover{
-      transform:scale(1.05);
-    }
-
-    footer{
-      padding:40px;
-      text-align:center;
-      color:#777;
-      border-top:1px solid rgba(255,255,255,0.08);
-    }
-
-    @media(max-width:900px){
-
-      .projects-grid,
-      .about-section{
-        grid-template-columns:1fr;
-      }
-
-      .nav-links{
-        display:none;
-      }
-
-      .hero-buttons{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .section-heading h2,
-      .contact-section h2{
-        font-size:3rem;
-      }
-
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<header class="hero">
+<div class="noise"></div>
 
+<header class="hero">
   <nav>
     <div class="logo">VIKA®</div>
-
     <div class="nav-links">
       <a href="#works">Works</a>
       <a href="#about">About</a>
@@ -406,11 +25,7 @@
   </nav>
 
   <div class="hero-content">
-
-    <p class="eyebrow">
-      Senior Visual Designer / Art Direction / Branding
-    </p>
-
+    <p class="eyebrow">Senior Visual Designer / Art Direction / Branding</p>
     <h1>
       Digital experiences<br>
       crafted with emotion,<br>
@@ -423,33 +38,22 @@
     </p>
 
     <div class="hero-buttons">
-      <a class="primary-btn" href="#works">
-        View Projects
-      </a>
-
-      <a class="secondary-btn" href="#contact">
-        Book a Call
-      </a>
+      <a class="primary-btn" href="#works">View Projects</a>
+      <a class="secondary-btn" href="#contact">Book a Call</a>
     </div>
-
   </div>
 
   <div class="floating-card card-1"></div>
   <div class="floating-card card-2"></div>
-
 </header>
 
 <section class="featured-text">
-
   <p>
-    Selected works for fashion, beauty,
-    lifestyle and premium digital brands.
+    Selected works for fashion, beauty, lifestyle and premium digital brands.
   </p>
-
 </section>
 
 <section id="works" class="projects-section">
-
   <div class="section-heading">
     <span>SELECTED WORKS</span>
     <h2>Portfolio</h2>
@@ -458,100 +62,72 @@
   <div class="projects-grid">
 
     <article class="project large">
-
       <div class="project-image gradient-1"></div>
-
       <div class="project-info">
         <span>Brand Identity</span>
         <h3>Éther Cosmetics</h3>
       </div>
-
     </article>
 
     <article class="project">
-
       <div class="project-image gradient-2"></div>
-
       <div class="project-info">
         <span>Campaign Design</span>
         <h3>Mode Studio</h3>
       </div>
-
     </article>
 
     <article class="project">
-
       <div class="project-image gradient-3"></div>
-
       <div class="project-info">
         <span>UI/UX</span>
         <h3>Lumina App</h3>
       </div>
-
     </article>
 
     <article class="project">
-
       <div class="project-image gradient-4"></div>
-
       <div class="project-info">
         <span>Creative Direction</span>
         <h3>Veloura</h3>
       </div>
-
     </article>
 
     <article class="project">
-
       <div class="project-image gradient-5"></div>
-
       <div class="project-info">
         <span>Packaging</span>
         <h3>Givene Beauty</h3>
       </div>
-
     </article>
 
     <article class="project large">
-
       <div class="project-image gradient-6"></div>
-
       <div class="project-info">
         <span>Luxury Editorial</span>
         <h3>Atelier Noir</h3>
       </div>
-
     </article>
 
   </div>
-
 </section>
 
 <section id="about" class="about-section">
-
   <div class="about-left">
-
     <span>ABOUT</span>
-
     <h2>
       Design is not decoration.
-      It’s perception,
-      psychology and emotion.
+      It’s perception, psychology and emotion.
     </h2>
-
   </div>
 
   <div class="about-right">
-
     <p>
-      I help brands look premium,
-      feel memorable and communicate with clarity.
-      My work combines visual storytelling,
-      strategic thinking and modern digital aesthetics.
+      I help brands look premium, feel memorable and communicate with clarity.
+      My work combines visual storytelling, strategic thinking and modern digital aesthetics.
     </p>
 
     <div class="stats">
-
       <div>
         <h3>6+</h3>
         <p>Premium Projects</p>
@@ -566,42 +142,29 @@
         <h3>Senior</h3>
         <p>Creative Level</p>
       </div>
-
     </div>
-
   </div>
-
 </section>
 
 <section class="quote-section">
-
   <h2>
-    “Minimalism only works
-    when every detail feels intentional.”
+    “Minimalism only works when every detail feels intentional.”
   </h2>
-
 </section>
 
 <section id="contact" class="contact-section">
-
   <span>CONTACT</span>
-
-  <h2>
-    Let’s build something iconic.
-  </h2>
+  <h2>Let’s build something iconic.</h2>
 
   <a href="mailto:hello@vika.design" class="contact-button">
     hello@vika.design
   </a>
-
 </section>
 
 <footer>
-  <p>
-    © 2026 Vika Portfolio —
-    Crafted with modern motion design.
-  </p>
+  <p>© 2026 Vika Portfolio — Crafted with modern motion design.</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
