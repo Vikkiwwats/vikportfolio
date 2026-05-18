@@ -1,170 +1,849 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vika — Senior Designer Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>VIKA — Creative Designer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#f6f6f4;
+color:#111;
+overflow-x:hidden;
+}
+
+/* ===== BACKGROUND ===== */
+
+.bg-gradient{
+position:fixed;
+inset:0;
+z-index:-2;
+
+background:
+radial-gradient(circle at top left,#ffffff 0%,transparent 30%),
+radial-gradient(circle at bottom right,#dfe9ff 0%,transparent 35%),
+linear-gradient(180deg,#f8f8f6 0%,#f2f3f7 100%);
+}
+
+.noise{
+position:fixed;
+inset:0;
+z-index:-1;
+opacity:0.03;
+background-image:url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+}
+
+/* ===== NAVBAR ===== */
+
+nav{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+width:92%;
+max-width:1400px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:18px 28px;
+
+background:rgba(255,255,255,0.6);
+
+backdrop-filter:blur(30px);
+
+border:1px solid rgba(255,255,255,0.5);
+
+border-radius:24px;
+
+z-index:1000;
+}
+
+.logo{
+font-size:1rem;
+font-weight:800;
+letter-spacing:3px;
+}
+
+.nav-links{
+display:flex;
+gap:40px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#555;
+font-weight:500;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#000;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+min-height:100vh;
+
+padding:
+180px
+6vw
+120px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:80px;
+
+position:relative;
+}
+
+.hero-left{
+max-width:760px;
+}
+
+.eyebrow{
+font-size:0.9rem;
+letter-spacing:1px;
+text-transform:uppercase;
+color:#777;
+margin-bottom:24px;
+}
+
+.hero h1{
+font-size:clamp(4rem,8vw,8rem);
+line-height:0.92;
+font-weight:800;
+letter-spacing:-4px;
+margin-bottom:30px;
+}
+
+.hero-description{
+max-width:600px;
+font-size:1.15rem;
+line-height:1.8;
+color:#555;
+margin-bottom:40px;
+}
+
+.hero-buttons{
+display:flex;
+gap:18px;
+}
+
+.primary-btn,
+.secondary-btn{
+
+padding:18px 30px;
+border-radius:999px;
+text-decoration:none;
+font-weight:600;
+transition:0.4s;
+}
+
+.primary-btn{
+background:#111;
+color:white;
+box-shadow:
+0 10px 40px rgba(0,0,0,0.15);
+}
+
+.primary-btn:hover{
+transform:translateY(-4px);
+}
+
+.secondary-btn{
+background:rgba(255,255,255,0.6);
+color:#111;
+border:1px solid rgba(0,0,0,0.08);
+backdrop-filter:blur(20px);
+}
+
+.secondary-btn:hover{
+background:white;
+}
+
+/* ===== FLOATING UI ===== */
+
+.hero-ui{
+position:relative;
+width:480px;
+height:520px;
+}
+
+.glass-card{
+position:absolute;
+
+background:rgba(255,255,255,0.55);
+
+backdrop-filter:blur(35px);
+
+border:1px solid rgba(255,255,255,0.7);
+
+box-shadow:
+0 30px 80px rgba(0,0,0,0.08);
+
+border-radius:36px;
+}
+
+.card-big{
+width:420px;
+height:500px;
+right:0;
+top:0;
+
+padding:30px;
+
+animation:float 7s ease-in-out infinite;
+}
+
+.card-small{
+width:220px;
+height:160px;
+
+left:-40px;
+bottom:40px;
+
+animation:float 5s ease-in-out infinite;
+}
+
+/* ===== UI INSIDE ===== */
+
+.fake-app{
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
+
+.fake-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.circle-group{
+display:flex;
+gap:8px;
+}
+
+.circle{
+width:10px;
+height:10px;
+border-radius:50%;
+background:#d8d8d8;
+}
+
+.fake-menu{
+width:100px;
+height:12px;
+border-radius:999px;
+background:#ececec;
+}
+
+.mockup{
+flex:1;
+margin:24px 0;
+border-radius:24px;
+
+background:
+linear-gradient(
+135deg,
+#f8d7ff,
+#d8e6ff,
+#ffffff
+);
+
+overflow:hidden;
+position:relative;
+}
+
+.mockup::after{
+content:"";
+
+position:absolute;
+inset:20px;
+
+border-radius:18px;
+
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,0.6),
+rgba(255,255,255,0.15)
+);
+}
+
+.fake-bottom{
+display:flex;
+justify-content:space-between;
+gap:12px;
+}
+
+.bottom-card{
+height:80px;
+flex:1;
+border-radius:20px;
+background:#f4f4f4;
+}
+
+/* ===== SECTION ===== */
+
+.section{
+padding:140px 6vw;
+}
+
+.section-heading{
+margin-bottom:70px;
+}
+
+.section-heading span{
+font-size:0.9rem;
+letter-spacing:1px;
+text-transform:uppercase;
+color:#888;
+}
+
+.section-heading h2{
+font-size:4rem;
+margin-top:14px;
+letter-spacing:-2px;
+}
+
+/* ===== PROJECTS ===== */
+
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:30px;
+}
+
+.project{
+position:relative;
+overflow:hidden;
+
+border-radius:36px;
+
+min-height:520px;
+
+background:white;
+
+box-shadow:
+0 25px 80px rgba(0,0,0,0.06);
+
+transition:0.5s;
+}
+
+.project:hover{
+transform:
+translateY(-10px)
+scale(1.01);
+}
+
+.project-image{
+position:absolute;
+inset:0;
+
+transition:0.7s;
+}
+
+.project:hover .project-image{
+transform:scale(1.05);
+}
+
+.p1{
+background:
+linear-gradient(
+135deg,
+#ffd6e7,
+#ffeec8
+);
+}
+
+.p2{
+background:
+linear-gradient(
+135deg,
+#dceeff,
+#ffffff
+);
+}
+
+.p3{
+background:
+linear-gradient(
+135deg,
+#e4dfff,
+#f6f6f6
+);
+}
+
+.p4{
+background:
+linear-gradient(
+135deg,
+#ffe7cf,
+#fff
+);
+}
+
+.p5{
+background:
+linear-gradient(
+135deg,
+#dfffe4,
+#f8fff8
+);
+}
+
+.p6{
+background:
+linear-gradient(
+135deg,
+#ececec,
+#ffffff
+);
+}
+
+.project-content{
+position:absolute;
+bottom:30px;
+left:30px;
+z-index:2;
+}
+
+.project-content span{
+font-size:0.9rem;
+color:#666;
+}
+
+.project-content h3{
+font-size:2rem;
+margin-top:10px;
+}
+
+/* ===== ABOUT ===== */
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:start;
+}
+
+.about h2{
+font-size:4rem;
+line-height:1;
+letter-spacing:-3px;
+}
+
+.about p{
+font-size:1.1rem;
+line-height:1.9;
+color:#555;
+}
+
+/* ===== QUOTE ===== */
+
+.quote{
+text-align:center;
+padding:180px 6vw;
+}
+
+.quote h2{
+font-size:clamp(2.5rem,5vw,5rem);
+line-height:1.1;
+letter-spacing:-3px;
+}
+
+/* ===== CONTACT ===== */
+
+.contact{
+text-align:center;
+padding:160px 6vw;
+}
+
+.contact h2{
+font-size:5rem;
+line-height:0.95;
+letter-spacing:-4px;
+margin:24px 0 40px;
+}
+
+.contact-btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+
+padding:22px 36px;
+
+background:#111;
+color:white;
+
+text-decoration:none;
+font-weight:600;
+
+border-radius:999px;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,0.15);
+
+transition:0.4s;
+}
+
+.contact-btn:hover{
+transform:translateY(-5px);
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+padding:50px;
+text-align:center;
+color:#777;
+}
+
+/* ===== ANIMATION ===== */
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:1100px){
+
+.hero{
+flex-direction:column;
+}
+
+.hero-ui{
+width:100%;
+height:500px;
+}
+
+.projects-grid,
+.about{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:4rem;
+}
+
+.section-heading h2,
+.about h2,
+.contact h2{
+font-size:3rem;
+}
+
+nav{
+padding:16px 20px;
+}
+
+.nav-links{
+display:none;
+}
+
+.hero-buttons{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.card-big{
+width:100%;
+}
+
+.card-small{
+display:none;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
+<div class="bg-gradient"></div>
 <div class="noise"></div>
 
-<header class="hero">
-  <nav>
-    <div class="logo">VIKA®</div>
-    <div class="nav-links">
-      <a href="#works">Works</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+<!-- NAV -->
 
-  <div class="hero-content">
-    <p class="eyebrow">Senior Visual Designer / Art Direction / Branding</p>
-    <h1>
-      Digital experiences<br>
-      crafted with emotion,<br>
-      precision & strategy.
-    </h1>
+<nav>
 
-    <p class="description">
-      I create premium visual systems, campaigns and interfaces
-      that make brands feel iconic.
-    </p>
+<div class="logo">
+VIKA®
+</div>
 
-    <div class="hero-buttons">
-      <a class="primary-btn" href="#works">View Projects</a>
-      <a class="secondary-btn" href="#contact">Book a Call</a>
-    </div>
-  </div>
+<div class="nav-links">
+<a href="#work">Work</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
 
-  <div class="floating-card card-1"></div>
-  <div class="floating-card card-2"></div>
-</header>
+</nav>
 
-<section class="featured-text">
-  <p>
-    Selected works for fashion, beauty, lifestyle and premium digital brands.
-  </p>
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-left">
+
+<p class="eyebrow">
+Senior Designer / Art Direction / Branding
+</p>
+
+<h1>
+Designing brands<br>
+that feel iconic.
+</h1>
+
+<p class="hero-description">
+
+I create premium digital experiences,
+visual identities and modern interfaces
+with the aesthetics of future-forward brands.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#work" class="primary-btn">
+View Portfolio
+</a>
+
+<a href="#contact" class="secondary-btn">
+Let's Work
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-ui">
+
+<div class="glass-card card-big">
+
+<div class="fake-app">
+
+<div class="fake-top">
+
+<div class="circle-group">
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+</div>
+
+<div class="fake-menu"></div>
+
+</div>
+
+<div class="mockup"></div>
+
+<div class="fake-bottom">
+
+<div class="bottom-card"></div>
+<div class="bottom-card"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="glass-card card-small"></div>
+
+</div>
+
 </section>
 
-<section id="works" class="projects-section">
-  <div class="section-heading">
-    <span>SELECTED WORKS</span>
-    <h2>Portfolio</h2>
-  </div>
+<!-- WORK -->
 
-  <div class="projects-grid">
+<section class="section" id="work">
 
-    <article class="project large">
-      <div class="project-image gradient-1"></div>
-      <div class="project-info">
-        <span>Brand Identity</span>
-        <h3>Éther Cosmetics</h3>
-      </div>
-    </article>
+<div class="section-heading">
 
-    <article class="project">
-      <div class="project-image gradient-2"></div>
-      <div class="project-info">
-        <span>Campaign Design</span>
-        <h3>Mode Studio</h3>
-      </div>
-    </article>
+<span>Selected Projects</span>
 
-    <article class="project">
-      <div class="project-image gradient-3"></div>
-      <div class="project-info">
-        <span>UI/UX</span>
-        <h3>Lumina App</h3>
-      </div>
-    </article>
+<h2>
+Portfolio
+</h2>
 
-    <article class="project">
-      <div class="project-image gradient-4"></div>
-      <div class="project-info">
-        <span>Creative Direction</span>
-        <h3>Veloura</h3>
-      </div>
-    </article>
+</div>
 
-    <article class="project">
-      <div class="project-image gradient-5"></div>
-      <div class="project-info">
-        <span>Packaging</span>
-        <h3>Givene Beauty</h3>
-      </div>
-    </article>
+<div class="projects-grid">
 
-    <article class="project large">
-      <div class="project-image gradient-6"></div>
-      <div class="project-info">
-        <span>Luxury Editorial</span>
-        <h3>Atelier Noir</h3>
-      </div>
-    </article>
+<div class="project">
 
-  </div>
+<div class="project-image p1"></div>
+
+<div class="project-content">
+<span>Luxury Branding</span>
+<h3>Éther Beauty</h3>
+</div>
+
+</div>
+
+<div class="project">
+
+<div class="project-image p2"></div>
+
+<div class="project-content">
+<span>UI / UX Design</span>
+<h3>Lumina App</h3>
+</div>
+
+</div>
+
+<div class="project">
+
+<div class="project-image p3"></div>
+
+<div class="project-content">
+<span>Creative Direction</span>
+<h3>Veloura</h3>
+</div>
+
+</div>
+
+<div class="project">
+
+<div class="project-image p4"></div>
+
+<div class="project-content">
+<span>Campaign Design</span>
+<h3>Mode Studio</h3>
+</div>
+
+</div>
+
+<div class="project">
+
+<div class="project-image p5"></div>
+
+<div class="project-content">
+<span>Packaging</span>
+<h3>Givene</h3>
+</div>
+
+</div>
+
+<div class="project">
+
+<div class="project-image p6"></div>
+
+<div class="project-content">
+<span>Editorial</span>
+<h3>Atelier Noir</h3>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section id="about" class="about-section">
-  <div class="about-left">
-    <span>ABOUT</span>
-    <h2>
-      Design is not decoration.
-      It’s perception, psychology and emotion.
-    </h2>
-  </div>
+<!-- ABOUT -->
 
-  <div class="about-right">
-    <p>
-      I help brands look premium, feel memorable and communicate with clarity.
-      My work combines visual storytelling, strategic thinking and modern digital aesthetics.
-    </p>
+<section class="section about" id="about">
 
-    <div class="stats">
-      <div>
-        <h3>6+</h3>
-        <p>Premium Projects</p>
-      </div>
+<div>
 
-      <div>
-        <h3>2026</h3>
-        <p>Modern Design Standard</p>
-      </div>
+<h2>
+Minimal.<br>
+Emotional.<br>
+Intentional.
+</h2>
 
-      <div>
-        <h3>Senior</h3>
-        <p>Creative Level</p>
-      </div>
-    </div>
-  </div>
+</div>
+
+<div>
+
+<p>
+
+I believe premium design is built through
+clarity, visual rhythm and emotional perception.
+
+My work combines strategic thinking,
+modern aesthetics and cinematic presentation
+to help brands feel unforgettable.
+
+</p>
+
+</div>
+
 </section>
 
-<section class="quote-section">
-  <h2>
-    “Minimalism only works when every detail feels intentional.”
-  </h2>
+<!-- QUOTE -->
+
+<section class="quote">
+
+<h2>
+“Good design looks beautiful.<br>
+Great design feels inevitable.”
+</h2>
+
 </section>
 
-<section id="contact" class="contact-section">
-  <span>CONTACT</span>
-  <h2>Let’s build something iconic.</h2>
+<!-- CONTACT -->
 
-  <a href="mailto:hello@vika.design" class="contact-button">
-    hello@vika.design
-  </a>
+<section class="contact" id="contact">
+
+<p class="eyebrow">
+Contact
+</p>
+
+<h2>
+Let’s create<br>
+something iconic.
+</h2>
+
+<a href="mailto:hello@vika.design" class="contact-btn">
+hello@vika.design
+</a>
+
 </section>
 
 <footer>
-  <p>© 2026 Vika Portfolio — Crafted with modern motion design.</p>
+© 2026 VIKA Portfolio
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
