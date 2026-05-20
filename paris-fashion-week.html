@@ -1,1 +1,508 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Project Name — Viktoria Khimich</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,350;0,9..40,400;0,9..40,500;1,9..40,200;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:      #fafafa;
+  --bg2:     #f2f2f7;
+  --bg3:     #ffffff;
+  --fg:      #1c1c1e;
+  --fg2:     #3a3a3c;
+  --fg3:     #636366;
+  --fg4:     #aeaeb2;
+  --border:  rgba(0,0,0,0.08);
+  --accent:  #0071e3;
+  --accent-s:rgba(0,113,227,0.08);
+  --r:       18px;
+  --r-sm:    12px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+  --shadow:    0 4px 24px rgba(0,0,0,.07);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,.1);
+  --nav-h:   52px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:'DM Sans',system-ui,sans-serif;
+  font-weight:350;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;
+  background:rgba(250,250,250,0.82);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:0.5px solid rgba(0,0,0,0.12);
+}
+.nav-logo {
+  font-size:.82rem;font-weight:500;letter-spacing:-.01em;
+  color:var(--fg);text-decoration:none;
+  display:flex;align-items:center;gap:6px;
+}
+.nav-logo-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
+.nav-back {
+  font-size:.78rem;font-weight:400;color:var(--fg3);
+  text-decoration:none;display:flex;align-items:center;gap:6px;
+  padding:6px 14px;border-radius:100px;border:1px solid var(--border);
+  background:var(--bg3);
+  transition:all .2s;
+}
+.nav-back:hover{color:var(--accent);border-color:rgba(0,113,227,.2);}
+
+/* HERO */
+.project-hero {
+  padding: calc(var(--nav-h) + 64px) 32px 72px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.project-tag {
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);background:var(--accent-s);
+  border:1px solid rgba(0,113,227,.14);
+  padding:5px 14px;border-radius:100px;margin-bottom:28px;
+  opacity:0;animation:rise .7s .05s cubic-bezier(.22,1,.36,1) forwards;
+}
+.project-title {
+  font-size:clamp(36px,6vw,80px);
+  font-weight:250;letter-spacing:-.035em;line-height:1.05;
+  opacity:0;animation:rise .8s .15s cubic-bezier(.22,1,.36,1) forwards;
+}
+.project-title em{font-style:italic;color:var(--accent);}
+.project-subtitle {
+  font-size:clamp(1rem,1.8vw,1.15rem);font-weight:350;
+  color:var(--fg3);line-height:1.75;margin-top:20px;max-width:600px;
+  opacity:0;animation:rise .8s .25s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+/* META PILLS */
+.project-meta {
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:36px;
+  opacity:0;animation:rise .8s .35s cubic-bezier(.22,1,.36,1) forwards;
+}
+.meta-pill {
+  font-size:.7rem;font-weight:400;letter-spacing:.03em;
+  color:var(--fg3);background:var(--bg3);
+  border:1px solid var(--border);
+  padding:6px 16px;border-radius:100px;
+  box-shadow:var(--shadow-sm);
+}
+.meta-pill span{color:var(--fg4);margin-right:6px;}
+
+/* COVER IMAGE */
+.project-cover {
+  width:100%;
+  border-radius:24px;
+  overflow:hidden;
+  margin:56px auto 0;
+  max-width:1200px;
+  padding:0 32px;
+  opacity:0;animation:rise .9s .45s cubic-bezier(.22,1,.36,1) forwards;
+}
+.project-cover img {
+  width:100%;height:auto;display:block;
+  border-radius:20px;
+  box-shadow:var(--shadow-lg);
+}
+/* Placeholder when no image */
+.cover-placeholder {
+  width:100%;aspect-ratio:16/7;
+  background:linear-gradient(135deg,#e8f0fe,#c7d7fd,#dbeafe);
+  border-radius:20px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-lg);
+}
+.cover-placeholder-text{
+  font-size:clamp(3rem,8vw,9rem);font-weight:200;
+  letter-spacing:-.05em;color:rgba(59,130,246,.2);
+}
+
+/* CONTENT WRAPPER */
+.project-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 32px 40px;
+}
+
+/* SECTION LABEL */
+.section-label {
+  font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:16px;display:block;
+}
+
+/* ABOUT SECTION */
+.about-block {
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;
+  padding:64px 0;border-top:0.5px solid var(--border);
+}
+.about-block h2 {
+  font-size:clamp(28px,3.5vw,42px);font-weight:250;
+  letter-spacing:-.025em;line-height:1.15;
+}
+.about-block h2 em{font-style:italic;color:var(--accent);}
+.about-block p {
+  font-size:.95rem;font-weight:350;line-height:1.85;
+  color:var(--fg3);margin-top:8px;
+}
+.about-block p+p{margin-top:12px;}
+
+/* STATS ROW */
+.stats-row {
+  display:flex;gap:0;
+  background:var(--bg3);border-radius:var(--r);
+  border:1px solid var(--border);box-shadow:var(--shadow-sm);
+  overflow:hidden;margin:48px 0;
+}
+.stat-item{
+  flex:1;padding:24px 28px;border-right:1px solid var(--border);
+  text-align:center;
+}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-size:1.8rem;font-weight:200;letter-spacing:-.04em;color:var(--accent);}
+.stat-lbl{font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--fg4);margin-top:4px;}
+
+/* SINGLE IMAGE */
+.img-full {
+  width:100%;border-radius:var(--r);overflow:hidden;
+  margin:48px 0;box-shadow:var(--shadow);
+}
+.img-full img{width:100%;height:auto;display:block;}
+.img-placeholder{
+  width:100%;aspect-ratio:16/9;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;font-weight:400;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg4);
+}
+
+/* TWO COLUMNS */
+.img-2col {
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  margin:48px 0;
+}
+.img-2col .img-wrap{
+  border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);
+}
+.img-2col img{width:100%;height:auto;display:block;}
+.img-2col .img-placeholder{aspect-ratio:4/3;}
+
+/* THREE COLUMNS */
+.img-3col {
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  margin:48px 0;
+}
+.img-3col .img-wrap{
+  border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);
+}
+.img-3col img{width:100%;height:auto;display:block;}
+.img-3col .img-placeholder{aspect-ratio:1/1;}
+
+/* ASYMMETRIC GRID (big + small) */
+.img-asym {
+  display:grid;grid-template-columns:7fr 5fr;gap:14px;
+  margin:48px 0;
+}
+.img-asym .img-wrap{
+  border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);
+}
+.img-asym img{width:100%;height:100%;object-fit:cover;display:block;}
+.img-asym .img-placeholder{aspect-ratio:auto;min-height:300px;}
+
+/* CAPTION */
+.img-caption {
+  font-size:.72rem;font-weight:400;color:var(--fg4);
+  text-align:center;margin-top:-36px;margin-bottom:48px;
+  letter-spacing:.02em;
+}
+
+/* DELIVERABLES */
+.deliverables {
+  background:var(--bg3);border-radius:var(--r);
+  border:1px solid var(--border);padding:36px 40px;
+  margin:48px 0;box-shadow:var(--shadow-sm);
+}
+.deliverables h3{
+  font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:20px;
+}
+.deliv-list{
+  display:flex;flex-wrap:wrap;gap:8px;
+  list-style:none;
+}
+.deliv-list li{
+  font-size:.78rem;font-weight:400;
+  color:var(--fg2);background:var(--bg2);
+  border:0.5px solid var(--border);
+  padding:7px 16px;border-radius:100px;
+}
+
+/* QUOTE / INSIGHT */
+.project-quote {
+  border-left:2px solid var(--accent);
+  padding:24px 32px;margin:48px 0;
+  background:var(--accent-s);border-radius:0 var(--r-sm) var(--r-sm) 0;
+}
+.project-quote p{
+  font-size:1.05rem;font-weight:300;font-style:italic;
+  line-height:1.75;color:var(--fg2);
+}
+
+/* NEXT PROJECT */
+.next-project {
+  border-top:0.5px solid var(--border);
+  padding:64px 32px;
+  text-align:center;
+  max-width:960px;margin:0 auto;
+}
+.next-label{
+  font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--fg4);margin-bottom:16px;display:block;
+}
+.next-link{
+  font-size:clamp(24px,4vw,48px);font-weight:250;
+  letter-spacing:-.03em;color:var(--fg);text-decoration:none;
+  display:inline-flex;align-items:center;gap:16px;
+  transition:color .25s;
+}
+.next-link:hover{color:var(--accent);}
+.next-arrow{
+  font-size:1.2em;transition:transform .3s;
+}
+.next-link:hover .next-arrow{transform:translateX(6px);}
+
+/* FOOTER */
+footer{
+  padding:20px 32px;border-top:0.5px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--bg3);
+}
+.foot-l,.foot-r{font-size:.68rem;font-weight:300;color:var(--fg4);}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);}
+.reveal.on{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}
+@keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+/* ─── MOBILE ─── */
+@media(max-width:768px){
+  nav{padding:0 16px;}
+  .project-hero{padding:calc(var(--nav-h) + 40px) 16px 48px;}
+  .project-cover{padding:0 16px;}
+  .project-content{padding:48px 16px 32px;}
+  .about-block{grid-template-columns:1fr;gap:32px;}
+  .stats-row{flex-direction:column;}
+  .stat-item{border-right:none;border-bottom:1px solid var(--border);}
+  .stat-item:last-child{border-bottom:none;}
+  .img-2col,.img-3col,.img-asym{grid-template-columns:1fr;}
+  .deliverables{padding:24px 20px;}
+  .next-project{padding:48px 16px;}
+  footer{flex-direction:column;gap:4px;text-align:center;padding:16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-dot"></span>
+    Viktoria Khimich
+  </a>
+  <a href="index.html#work" class="nav-back">← All Projects</a>
+</nav>
+
+<!-- ══════════════════════════════════
+     HERO — замени текст на свой
+═══════════════════════════════════ -->
+<section class="project-hero">
+
+  <!-- Категория проекта -->
+  <div class="project-tag">Brand Identity · Event Design</div>
+
+  <!-- Название проекта -->
+  <h1 class="project-title">
+    Paris Fashion<br><em>Week Show</em>
+  </h1>
+
+  <!-- Краткое описание -->
+  <p class="project-subtitle">
+    Полная визуальная идентика для показа на Неделе моды в Париже — от логотипа до офлайн-материалов и контента для соцсетей.
+  </p>
+
+  <!-- Мета-данные -->
+  <div class="project-meta">
+    <div class="meta-pill"><span>Клиент</span>Название клиента</div>
+    <div class="meta-pill"><span>Год</span>2024</div>
+    <div class="meta-pill"><span>Роль</span>Graphic Designer</div>
+    <div class="meta-pill"><span>Сфера</span>Fashion · Events</div>
+  </div>
+
+</section>
+
+<!-- ОБЛОЖКА ПРОЕКТА -->
+<div class="project-cover">
+  <!--
+    ВСТАВЬ СЮДА ГЛАВНОЕ ФОТО:
+    <img src="cover.jpg" alt="Paris Fashion Week">
+    Или оставь заглушку пока нет фото:
+  -->
+  <div class="cover-placeholder">
+    <span class="cover-placeholder-text">PFW</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     КОНТЕНТ СТРАНИЦЫ
+═══════════════════════════════════ -->
+<div class="project-content">
+
+  <!-- БЛОК: О ПРОЕКТЕ -->
+  <div class="about-block reveal">
+    <div>
+      <span class="section-label">О проекте</span>
+      <h2>Задача и <em>контекст</em></h2>
+    </div>
+    <div>
+      <p>Расскажи что это был за проект, кто клиент, какая была задача. Например: нужно было создать полную визуальную айдентику для показа — от концепции до финальных материалов.</p>
+      <p>Что было важно учесть: аудитория, tone of voice, визуальный стиль бренда.</p>
+    </div>
+  </div>
+
+  <!-- СТАТИСТИКА / ЦИФРЫ (если есть что показать) -->
+  <div class="stats-row reveal">
+    <div class="stat-item">
+      <div class="stat-num">12+</div>
+      <div class="stat-lbl">форматов материалов</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-lbl">недели работы</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Paris</div>
+      <div class="stat-lbl">локация</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2024</div>
+      <div class="stat-lbl">год</div>
+    </div>
+  </div>
+
+  <!-- ГЛАВНОЕ ИЗОБРАЖЕНИЕ -->
+  <div class="img-full reveal">
+    <!--
+      <img src="image1.jpg" alt="Описание">
+    -->
+    <div class="img-placeholder" style="background:linear-gradient(135deg,#e8f0fe,#c7d7fd);border-radius:var(--r);">
+      Главное фото / мокап
+    </div>
+  </div>
+
+  <!-- ПОДПИСЬ К ФОТО (опционально) -->
+  <!-- <p class="img-caption">Логотип и основные элементы айдентики</p> -->
+
+  <!-- ДВА ФОТО В РЯД -->
+  <div class="img-2col reveal">
+    <div class="img-wrap">
+      <!-- <img src="image2.jpg" alt=""> -->
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#fdf4ff,#ede9fe);">Фото 2</div>
+    </div>
+    <div class="img-wrap">
+      <!-- <img src="image3.jpg" alt=""> -->
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);">Фото 3</div>
+    </div>
+  </div>
+
+  <!-- ЦИТАТА / ИНСАЙТ О ПРОЕКТЕ -->
+  <div class="project-quote reveal">
+    <p>«Здесь можно написать интересный инсайт о проекте, главную идею или что-то что ты поняла в процессе работы над ним.»</p>
+  </div>
+
+  <!-- ТРИ ФОТО В РЯД (хорошо для соцсетей / постов) -->
+  <div class="img-3col reveal">
+    <div class="img-wrap">
+      <!-- <img src="image4.jpg" alt=""> -->
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#fff7ed,#fed7aa);">Пост 1</div>
+    </div>
+    <div class="img-wrap">
+      <!-- <img src="image5.jpg" alt=""> -->
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#fdf2f8,#fce7f3);">Пост 2</div>
+    </div>
+    <div class="img-wrap">
+      <!-- <img src="image6.jpg" alt=""> -->
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#f0f9ff,#bae6fd);">Пост 3</div>
+    </div>
+  </div>
+
+  <!-- АСИММЕТРИЧНЫЙ МАКЕТ (большое + маленькое) -->
+  <div class="img-asym reveal">
+    <div class="img-wrap">
+      <!-- <img src="image7.jpg" alt=""> -->
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#f8fafc,#e2e8f0);min-height:360px;">Большое фото</div>
+    </div>
+    <div class="img-wrap">
+      <!-- <img src="image8.jpg" alt=""> -->
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#fdf4ff,#ddd6fe);min-height:360px;">Вертикальное фото</div>
+    </div>
+  </div>
+
+  <!-- ЧТО БЫЛО СДЕЛАНО -->
+  <div class="deliverables reveal">
+    <h3>Что было сделано</h3>
+    <ul class="deliv-list">
+      <li>Логотип проекта</li>
+      <li>Визуалы для Instagram</li>
+      <li>Анонсы мероприятия</li>
+      <li>Карточки дизайнеров</li>
+      <li>Бейджи и сертификаты</li>
+      <li>Баннер офлайн</li>
+      <li>Флаеры</li>
+      <li>Видео-анонсы</li>
+    </ul>
+  </div>
+
+  <!-- ЕЩЁ ОДНО ПОЛНОЕ ФОТО -->
+  <div class="img-full reveal">
+    <!-- <img src="final.jpg" alt="Финальный результат"> -->
+    <div class="img-placeholder" style="background:linear-gradient(135deg,#e8f0fe,#dbeafe);border-radius:var(--r);">
+      Финальный результат / мокап
+    </div>
+  </div>
+
+</div>
+
+<!-- СЛЕДУЮЩИЙ ПРОЕКТ -->
+<div class="next-project reveal">
+  <span class="next-label">Следующий проект</span>
+  <a href="project-bfw.html" class="next-link">
+    New Names BFW × Mark Formelle
+    <span class="next-arrow">→</span>
+  </a>
+</div>
+
+<footer>
+  <span class="foot-l">© 2026 Viktoria Khimich</span>
+  <span class="foot-r"><a href="index.html" style="color:var(--fg4);text-decoration:none;">← Back to portfolio</a></span>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
