@@ -103,12 +103,22 @@ nav.scrolled{background:rgba(255,255,255,0.92);}
 
 /* ── HERO ── */
 .hero {
-  min-height:100svh;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  text-align:center;
-  padding:calc(var(--nav-h) + 40px) 32px 80px;
-  position:relative;overflow:hidden;
+  min-height: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  text-align: center;
+
+  padding:
+    calc(var(--nav-h) + 72px)
+    32px
+    72px;
+
+  position: relative;
+  overflow: hidden;
 }
 
 /* Gradient background */
