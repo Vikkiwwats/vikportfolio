@@ -103,9 +103,8 @@ nav.scrolled{background:rgba(255,255,255,0.92);}
 
 /* ── HERO ── */
 .hero {
-  min-height: auto;
-
-  display: flex;
+  min-height: 100svh;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -121,8 +120,7 @@ nav.scrolled{background:rgba(255,255,255,0.92);}
   overflow: hidden;
 }
 /* Gradient background */
-.hero::before {
-  content:'';
+.hero::before {  content:'';
   position:absolute;inset:0;z-index:0;
   background:
     radial-gradient(ellipse 80% 60% at 20% -10%, rgba(0,113,227,.09) 0%, transparent 60%),
