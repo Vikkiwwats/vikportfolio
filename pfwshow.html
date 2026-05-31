@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Paris Fashion Week Show — Viktoria Khimich</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+
+/* ═══════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════ */
+:root{
+  --bg:       #060608;
+  --bg2:      #0d0d10;
+  --bg3:      #141418;
+  --bg4:      #1c1c22;
+  --line:     rgba(255,255,255,0.06);
+  --line2:    rgba(255,255,255,0.1);
+  --white:    #f2efe8;
+  --w80:      rgba(242,239,232,0.8);
+  --w55:      rgba(242,239,232,0.55);
+  --w30:      rgba(242,239,232,0.3);
+  --w12:      rgba(242,239,232,0.12);
+  --w06:      rgba(242,239,232,0.06);
+  --red:      #c8392b;
+  --red2:     #e04030;
+  --red3:     #ff5540;
+  --red-glow: rgba(200,57,43,0.18);
+  --red-dim:  rgba(200,57,43,0.08);
+  --gold:     #c9a96e;
+  --gold2:    rgba(201,169,110,0.12);
+  --r:        14px;
+  --r-sm:     9px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:'Inter',system-ui,sans-serif;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* ─────────────────────────────────────
+   CURSOR
+───────────────────────────────────── */
+.cur{
+  position:fixed;z-index:9999;pointer-events:none;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--red3);
+  transform:translate(-50%,-50%);
+  transition:width .3s cubic-bezier(.22,1,.36,1), height .3s cubic-bezier(.22,1,.36,1), opacity .3s;
+  mix-blend-mode:screen;
+}
+.cur-ring{
+  position:fixed;z-index:9998;pointer-events:none;
+  width:34px;height:34px;border-radius:50%;
+  border:1px solid rgba(200,57,43,.4);
+  transform:translate(-50%,-50%);
+  transition:width .25s,height .25s;
+}
+body.hov .cur{width:52px;height:52px;opacity:.2;}
+body.hov .cur-ring{width:52px;height:52px;opacity:0;}
+
+/* ─────────────────────────────────────
+   LOADER — cinematic reveal
+───────────────────────────────────── */
+#loader{
+  position:fixed;inset:0;z-index:8000;
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;
+  transition:opacity .8s ease,visibility .8s ease;
+}
+#loader.out{opacity:0;visibility:hidden;}
+.ld-city{
+  font-size:.62rem;font-weight:500;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--w30);
+  opacity:0;animation:ldFade .6s .1s forwards;
+}
+.ld-title-wrap{overflow:hidden;}
+.ld-title{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(1.6rem,4vw,3.5rem);
+  font-style:italic;letter-spacing:-.02em;
+  color:var(--white);
+  transform:translateY(110%);
+  animation:ldSlide .8s .3s cubic-bezier(.22,1,.36,1) forwards;
+}
+.ld-title em{color:var(--red);}
+.ld-bar-wrap{width:240px;height:1px;background:var(--line2);position:relative;overflow:hidden;}
+.ld-bar{
+  position:absolute;top:0;left:0;height:100%;width:0;
+  background:linear-gradient(90deg, var(--red), var(--red3), var(--gold));
+  animation:ldBar 1s .4s cubic-bezier(.22,1,.36,1) forwards;
+}
+@keyframes ldFade{to{opacity:1;}}
+@keyframes ldSlide{to{transform:translateY(0);}}
+@keyframes ldBar{to{width:100%;}}
+
+/* ─────────────────────────────────────
+   NAV
+───────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:700;
+  display:flex;align-items:center;justify-content:space-between;
+  height:54px;padding:0 44px;
+  background:rgba(6,6,8,0.7);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  border-bottom:1px solid transparent;
+  transition:border-color .5s,background .5s;
+}
+nav.solid{
+  border-color:var(--line);
+  background:rgba(6,6,8,0.88);
+}
+.nav-logo{
+  font-family:'Instrument Serif',serif;
+  font-size:.95rem;font-style:italic;letter-spacing:-.01em;
+  color:var(--white);text-decoration:none;
+  display:flex;align-items:center;gap:7px;
+}
+.nav-logo-mark{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--red);
+  box-shadow:0 0 8px var(--red3);
+  animation:pulse 2.5s infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 0 6px var(--red3);}50%{box-shadow:0 0 16px var(--red3),0 0 32px rgba(200,57,43,.3);}}
+.nav-c{display:flex;gap:2px;}
+.nav-c a{
+  font-size:.72rem;font-weight:400;letter-spacing:.01em;
+  color:var(--w30);text-decoration:none;
+  padding:5px 13px;border-radius:100px;
+  transition:color .2s,background .2s;
+}
+.nav-c a:hover{color:var(--white);background:var(--w06);}
+.nav-pill{
+  font-size:.7rem;font-weight:500;letter-spacing:.02em;
+  background:var(--white);color:var(--bg);
+  text-decoration:none;padding:7px 18px;border-radius:100px;
+  transition:background .3s,transform .2s;
+  box-shadow:0 0 20px rgba(242,239,232,.15);
+}
+.nav-pill:hover{background:var(--red);color:#fff;transform:scale(.97);}
+
+/* ─────────────────────────────────────
+   BACK
+───────────────────────────────────── */
+.back-wrap{
+  padding:82px 44px 0;
+  max-width:1300px;margin:0 auto;
+}
+.back{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.7rem;font-weight:400;letter-spacing:.06em;
+  color:var(--w30);text-decoration:none;
+  transition:color .25s,gap .3s;
+}
+.back:hover{color:var(--white);gap:12px;}
+.back-arr{transition:transform .3s;}
+.back:hover .back-arr{transform:translateX(-3px);}
+
+/* ─────────────────────────────────────
+   HERO GLOW BG
+───────────────────────────────────── */
+.hero-glow{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  overflow:hidden;
+}
+.hg1{
+  position:absolute;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle, rgba(200,57,43,.18) 0%, transparent 65%);
+  top:-200px;right:-100px;
+  animation:hgFloat1 16s ease-in-out infinite;
+  filter:blur(1px);
+}
+.hg2{
+  position:absolute;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle, rgba(201,169,110,.1) 0%, transparent 65%);
+  bottom:-100px;left:-100px;
+  animation:hgFloat2 20s ease-in-out infinite;
+}
+.hg3{
+  position:absolute;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle, rgba(200,57,43,.1) 0%, transparent 65%);
+  top:40%;left:30%;
+  animation:hgFloat3 14s ease-in-out infinite;
+}
+@keyframes hgFloat1{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(-40px,30px) scale(1.05);}66%{transform:translate(30px,-20px) scale(.95);}}
+@keyframes hgFloat2{0%,100%{transform:translate(0,0);}50%{transform:translate(30px,-40px);}}
+@keyframes hgFloat3{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-20px,20px) scale(1.1);}}
+
+/* Scanline texture */
+.hero-glow::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px);
+  pointer-events:none;
+}
+
+/* ─────────────────────────────────────
+   PROJECT HERO
+───────────────────────────────────── */
+.proj-hero{
+  position:relative;
+  min-height:100svh;
+  display:grid;grid-template-columns:440px 1fr;
+  padding-top:54px;
+  overflow:hidden;
+}
+.proj-hero > *{position:relative;z-index:1;}
+
+.ph-left{
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:56px 44px 64px;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+/* Subtle left shimmer line */
+.ph-left::after{
+  content:'';
+  position:absolute;right:0;top:20%;bottom:20%;width:1px;
+  background:linear-gradient(to bottom, transparent, var(--red), transparent);
+  opacity:.4;
+}
+
+.ph-eyebrow{
+  display:flex;align-items:center;gap:8px;
+  font-size:.6rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--red);margin-bottom:22px;
+  opacity:0;animation:riseIn .7s .8s cubic-bezier(.22,1,.36,1) forwards;
+}
+.ph-eyebrow-line{width:24px;height:1px;background:var(--red);}
+
+.ph-title{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(54px,5.5vw,86px);
+  font-weight:400;line-height:.93;letter-spacing:-.03em;
+  opacity:0;animation:riseIn .85s .92s cubic-bezier(.22,1,.36,1) forwards;
+}
+/* Shimmer on "Show" */
+.ph-title .shine{
+  font-style:italic;
+  background:linear-gradient(110deg,
+    var(--red) 0%,
+    var(--red) 25%,
+    #ff8870 38%,
+    #ffcfc8 44%,
+    #fff     48%,
+    #ffcfc8 52%,
+    #ff8870 58%,
+    var(--red) 72%,
+    var(--red) 100%
+  );
+  background-size:300% 100%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:metalShine 4s ease-in-out 1.8s infinite;
+  display:inline-block;
+}
+@keyframes metalShine{0%{background-position:100% 0;}50%{background-position:0% 0;}100%{background-position:0% 0;}}
+
+.ph-desc{
+  font-size:.88rem;font-weight:300;line-height:1.85;color:var(--w55);
+  max-width:360px;margin-top:22px;
+  opacity:0;animation:riseIn .85s 1.05s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+.ph-meta{
+  margin-top:32px;
+  border-top:1px solid var(--line);
+  opacity:0;animation:riseIn .85s 1.18s cubic-bezier(.22,1,.36,1) forwards;
+}
+.meta-row{
+  display:grid;grid-template-columns:90px 1fr;
+  padding:11px 0;border-bottom:1px solid var(--line);
+  font-size:.78rem;gap:8px;
+}
+.meta-key{color:var(--w30);font-weight:400;}
+.meta-val{color:var(--w55);font-weight:300;line-height:1.5;}
+
+.ph-ig{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.75rem;font-weight:500;
+  color:var(--white);text-decoration:none;
+  margin-top:26px;
+  position:relative;
+  opacity:0;animation:riseIn .85s 1.3s cubic-bezier(.22,1,.36,1) forwards;
+}
+.ph-ig::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;
+  background:linear-gradient(90deg, var(--red), var(--red3), transparent);
+}
+.ph-ig:hover{color:var(--red);}
+
+/* Right — cover slot */
+.ph-right{
+  position:relative;overflow:hidden;
+  min-height:80vh;
+  opacity:0;animation:fadeIn 1.4s .7s cubic-bezier(.22,1,.36,1) forwards;
+}
+.cover-slot{
+  width:100%;height:100%;min-height:80vh;
+  background:var(--bg3);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+/* Glow inside cover slot */
+.cover-slot::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 30%, rgba(200,57,43,.2) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,169,110,.1) 0%, transparent 60%);
+  pointer-events:none;animation:coverGlow 8s ease-in-out infinite alternate;
+}
+@keyframes coverGlow{
+  from{opacity:.6;}
+  to{opacity:1;}
+}
+.cover-slot img{
+  width:100%;height:100%;object-fit:cover;
+  position:absolute;inset:0;display:block;z-index:2;
+}
+
+.ph-year{
+  position:absolute;right:-24px;top:50%;
+  transform:translateY(-50%) rotate(90deg);
+  font-size:.55rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--w30);white-space:nowrap;z-index:3;
+  opacity:0;animation:fadeIn 1s 1.8s forwards;
+}
+.ph-cross{
+  position:absolute;bottom:36px;right:36px;z-index:3;
+  font-size:1.3rem;color:var(--red);
+  text-shadow:0 0 20px var(--red3);
+  opacity:0;animation:fadeIn 1s 2s forwards;
+  animation-timing-function:ease-in-out;
+}
+
+/* ─────────────────────────────────────
+   SLOT PLACEHOLDER
+───────────────────────────────────── */
+.slot-ph{
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  pointer-events:none;position:relative;z-index:2;
+}
+.slot-ph-icon{
+  width:60px;height:60px;border-radius:14px;
+  border:1.5px dashed rgba(255,255,255,.14);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;opacity:.5;
+  background:rgba(255,255,255,.02);
+}
+.slot-ph-label{font-size:.6rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.22);}
+.slot-ph-size{font-size:.55rem;color:rgba(255,255,255,.12);margin-top:2px;font-family:monospace;}
+
+/* ─────────────────────────────────────
+   SECTION COMMONS
+───────────────────────────────────── */
+.section{
+  max-width:1300px;margin:0 auto;
+  padding:96px 44px;
+  position:relative;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.58rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--red);margin-bottom:14px;
+}
+.eyebrow-dash{width:20px;height:1px;background:var(--red);}
+.sec-title{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(34px,3.8vw,56px);
+  font-weight:400;letter-spacing:-.02em;line-height:1.08;
+}
+.sec-body{
+  font-size:.88rem;font-weight:300;line-height:1.85;
+  color:var(--w55);margin-top:14px;
+}
+
+.divider{
+  max-width:1300px;margin:0 auto;
+  height:1px;background:var(--line);
+  position:relative;
+}
+/* Red glow on divider */
+.divider::after{
+  content:'';position:absolute;left:0;top:0;height:1px;
+  width:120px;
+  background:linear-gradient(90deg, var(--red), transparent);
+  opacity:.7;
+}
+
+/* ─────────────────────────────────────
+   OVERVIEW
+───────────────────────────────────── */
+.ov-grid{
+  display:grid;grid-template-columns:280px 1fr;gap:80px;
+  margin-top:48px;align-items:start;
+}
+.ov-quote{
+  font-family:'Instrument Serif',serif;
+  font-size:1.1rem;font-style:italic;line-height:1.65;
+  color:var(--w80);
+  border-left:2px solid var(--red);
+  padding-left:20px;
+  margin-top:14px;
+}
+
+.pillars{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  margin-top:52px;
+}
+.pillar{
+  padding:22px 20px;
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  background:var(--bg2);
+  position:relative;overflow:hidden;
+  transition:transform .4s cubic-bezier(.22,1,.36,1),
+              border-color .4s, box-shadow .4s;
+}
+/* Top glow line */
+.pillar::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg, transparent, var(--red), transparent);
+  opacity:0;transition:opacity .4s;
+}
+.pillar:hover{
+  transform:translateY(-5px);
+  border-color:rgba(200,57,43,.25);
+  box-shadow:0 16px 48px rgba(0,0,0,.5), 0 0 0 1px rgba(200,57,43,.1);
+}
+.pillar:hover::before{opacity:1;}
+/* Bottom ambient glow */
+.pillar::after{
+  content:'';position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);
+  width:60%;height:40px;border-radius:50%;
+  background:rgba(200,57,43,.12);filter:blur(12px);
+  opacity:0;transition:opacity .4s;
+}
+.pillar:hover::after{opacity:1;}
+.pillar-icon{
+  font-size:1rem;color:var(--red);
+  margin-bottom:12px;display:block;
+  text-shadow:0 0 12px rgba(200,57,43,.5);
+}
+.pillar-name{font-size:.82rem;font-weight:500;letter-spacing:-.01em;color:var(--white);margin-bottom:6px;}
+.pillar-desc{font-size:.72rem;font-weight:300;line-height:1.6;color:var(--w30);}
+
+/* ─────────────────────────────────────
+   SOCIAL GALLERY
+───────────────────────────────────── */
+.social-head{
+  display:grid;grid-template-columns:280px 1fr;gap:80px;align-items:end;
+  margin-bottom:36px;
+}
+
+.gallery-track{
+  display:flex;gap:12px;
+  overflow-x:auto;padding-bottom:16px;
+  scrollbar-width:thin;scrollbar-color:var(--line2) transparent;
+}
+.gallery-track::-webkit-scrollbar{height:2px;}
+.gallery-track::-webkit-scrollbar-thumb{background:rgba(200,57,43,.4);border-radius:2px;}
+
+.g-item{
+  flex-shrink:0;border-radius:var(--r);overflow:hidden;
+  border:1px solid var(--line);
+  cursor:zoom-in;position:relative;
+  transition:transform .45s cubic-bezier(.22,1,.36,1),
+              box-shadow .45s, border-color .45s;
+  background:var(--bg3);
+}
+.g-item::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to bottom, transparent 50%, rgba(0,0,0,.6) 100%);
+  opacity:0;transition:opacity .35s;pointer-events:none;
+}
+.g-item:hover{
+  transform:scale(1.03) translateY(-4px);
+  box-shadow:0 20px 60px rgba(0,0,0,.7), 0 0 0 1px rgba(200,57,43,.2);
+  border-color:rgba(200,57,43,.3);
+}
+.g-item:hover::before{opacity:1;}
+.g-item:hover .g-zoom{opacity:1;transform:translate(-50%,-50%) scale(1);}
+.g-item img{width:100%;height:100%;object-fit:cover;display:block;}
+
+.g-zoom{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(.8);
+  z-index:2;
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(200,57,43,.85);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;color:#fff;
+  opacity:0;transition:opacity .3s, transform .35s cubic-bezier(.22,1,.36,1);
+}
+
+/* Social sizes */
+.gs1{width:260px;height:340px;}
+.gs2{width:220px;height:340px;}
+.gs3{width:320px;height:340px;}
+.gs4{width:260px;height:340px;}
+.gs5{width:220px;height:340px;}
+
+.gallery-dots{display:flex;gap:5px;justify-content:center;margin-top:18px;}
+.gdot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--line2);transition:background .3s,transform .3s;
+}
+.gdot.on{background:var(--red);transform:scale(1.3);}
+
+/* ─────────────────────────────────────
+   IMAGE GRID (brand / print / merch)
+───────────────────────────────────── */
+.img-grid-wrap{
+  display:grid;grid-template-columns:260px 1fr;gap:72px;
+  align-items:start;
+}
+.ig-grid{display:grid;gap:12px;}
+.ig-3col{grid-template-columns:repeat(3,1fr);}
+.ig-2col{grid-template-columns:1fr 2fr;}
+
+.img-slot{
+  border-radius:var(--r);overflow:hidden;
+  border:1px solid var(--line);
+  cursor:zoom-in;position:relative;
+  background:var(--bg3);
+  transition:transform .45s cubic-bezier(.22,1,.36,1),
+              box-shadow .45s, border-color .45s;
+}
+.img-slot::after{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,.4) 100%);
+  opacity:0;transition:opacity .35s;pointer-events:none;
+}
+.img-slot:hover{
+  transform:translateY(-5px) scale(1.01);
+  box-shadow:0 20px 56px rgba(0,0,0,.7), 0 0 0 1px rgba(200,57,43,.18);
+  border-color:rgba(200,57,43,.25);
+}
+.img-slot:hover::after{opacity:1;}
+.img-slot:hover .g-zoom{opacity:1;transform:translate(-50%,-50%) scale(1);}
+.img-slot img{width:100%;height:100%;object-fit:cover;display:block;}
+
+/* Sizes */
+.ih-220{height:220px;}
+.ih-260{height:260px;}
+.ih-300{height:300px;}
+.ih-360{height:360px;}
+
+/* ─────────────────────────────────────
+   SECTION BG GLOW (decorative)
+───────────────────────────────────── */
+.sec-glow{
+  position:absolute;pointer-events:none;border-radius:50%;
+  filter:blur(80px);opacity:.06;
+}
+.sg-red{background:var(--red);}
+.sg-gold{background:var(--gold);}
+
+/* ─────────────────────────────────────
+   PREV / NEXT NAV
+───────────────────────────────────── */
+.proj-nav{
+  max-width:1300px;margin:0 auto;
+  padding:0 44px 80px;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;
+}
+.pn{
+  text-decoration:none;color:var(--white);
+  padding:22px 26px;
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  background:var(--bg2);
+  display:flex;align-items:center;gap:14px;
+  transition:all .4s cubic-bezier(.22,1,.36,1);
+  position:relative;overflow:hidden;
+}
+.pn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg, rgba(200,57,43,.06), transparent);
+  opacity:0;transition:opacity .4s;
+}
+.pn:hover{
+  border-color:rgba(200,57,43,.25);
+  transform:translateY(-3px);
+  box-shadow:0 14px 40px rgba(0,0,0,.5);
+}
+.pn:hover::before{opacity:1;}
+.pn-r{justify-content:flex-end;}
+.pn-label{font-size:.58rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--red);}
+.pn-name{font-size:.85rem;font-weight:400;color:var(--w80);margin-top:3px;}
+.pn-arr{font-size:1rem;color:var(--w30);}
+.pn-grid{
+  width:44px;height:44px;border:1px solid var(--line);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;color:var(--w30);font-size:.95rem;
+  background:var(--bg2);
+  transition:border-color .3s,color .3s;
+}
+.pn-grid:hover{border-color:var(--line2);color:var(--white);}
+
+/* ─────────────────────────────────────
+   CONTACT FOOTER
+───────────────────────────────────── */
+.cf{
+  background:var(--bg2);
+  border-top:1px solid var(--line);
+  padding:80px 44px;
+  position:relative;overflow:hidden;
+}
+.cf::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 50% 80% at 80% 50%, rgba(200,57,43,.09) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 60% at 10% 50%, rgba(201,169,110,.05) 0%, transparent 60%);
+  pointer-events:none;
+}
+.cf-inner{
+  max-width:1300px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto;
+  align-items:center;gap:40px;
+  position:relative;z-index:1;
+}
+.cf-h{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(28px,3.5vw,52px);
+  font-style:italic;letter-spacing:-.025em;line-height:1.05;
+}
+.cf-h .shine2{
+  background:linear-gradient(110deg,
+    var(--white) 0%,var(--white) 25%,
+    var(--red3) 38%,#ffcfc8 46%,#fff 50%,
+    #ffcfc8 54%,var(--red3) 62%,
+    var(--white) 74%,var(--white) 100%
+  );
+  background-size:300% 100%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:metalShine 5s ease-in-out 2s infinite;
+  display:inline-block;
+}
+.cf-links{display:flex;flex-direction:column;gap:9px;}
+.cf-link{
+  display:flex;align-items:center;gap:12px;
+  text-decoration:none;color:var(--white);
+  border:1px solid var(--line);border-radius:var(--r);
+  padding:14px 20px;background:var(--bg3);
+  transition:all .35s cubic-bezier(.22,1,.36,1);
+  position:relative;overflow:hidden;
+  min-width:200px;
+}
+.cf-link::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom, var(--red), var(--red3));
+  transform:scaleY(0);transform-origin:bottom;
+  transition:transform .35s cubic-bezier(.22,1,.36,1);
+}
+.cf-link:hover{
+  border-color:rgba(200,57,43,.3);
+  background:rgba(200,57,43,.06);
+  transform:translateX(4px);
+}
+.cf-link:hover::before{transform:scaleY(1);}
+.cfi{
+  width:34px;height:34px;border-radius:9px;
+  background:rgba(200,57,43,.12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;flex-shrink:0;
+  border:1px solid rgba(200,57,43,.2);
+}
+.cfl{font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--red);}
+.cfv{font-size:.78rem;font-weight:300;color:var(--w55);margin-top:2px;}
+
+/* ─────────────────────────────────────
+   FOOTER
+───────────────────────────────────── */
+footer{
+  border-top:1px solid var(--line);
+  padding:18px 44px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--bg);
+}
+.fl,.fr{font-size:.62rem;font-weight:300;color:var(--w30);}
+
+/* ─────────────────────────────────────
+   LIGHTBOX
+───────────────────────────────────── */
+#lb{
+  position:fixed;inset:0;z-index:9000;
+  background:rgba(0,0,0,.95);
+  backdrop-filter:blur(24px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;
+  transition:opacity .4s, visibility .4s;
+}
+#lb.open{opacity:1;visibility:visible;}
+.lb-img-wrap{
+  position:relative;
+  transform:scale(.9);
+  transition:transform .45s cubic-bezier(.22,1,.36,1);
+}
+#lb.open .lb-img-wrap{transform:scale(1);}
+#lbImg{
+  max-width:88vw;max-height:88vh;
+  border-radius:var(--r);
+  object-fit:contain;
+  display:block;
+  box-shadow:0 40px 100px rgba(0,0,0,.9), 0 0 0 1px var(--line2);
+}
+/* Glow behind lightbox image */
+.lb-glow{
+  position:absolute;inset:-20px;border-radius:var(--r);
+  background:radial-gradient(ellipse at center, rgba(200,57,43,.12) 0%, transparent 70%);
+  pointer-events:none;z-index:-1;
+}
+.lb-close{
+  position:fixed;top:22px;right:22px;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--w06);border:1px solid var(--line2);
+  color:var(--white);font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s,transform .25s;
+}
+.lb-close:hover{background:rgba(200,57,43,.4);transform:rotate(90deg);}
+.lb-prev,.lb-next{
+  position:fixed;top:50%;transform:translateY(-50%);
+  width:50px;height:50px;border-radius:50%;
+  background:var(--w06);border:1px solid var(--line2);
+  color:var(--white);font-size:1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s,transform .25s;
+}
+.lb-prev{left:20px;}
+.lb-next{right:20px;}
+.lb-prev:hover{background:rgba(200,57,43,.3);transform:translateY(-50%) translateX(-2px);}
+.lb-next:hover{background:rgba(200,57,43,.3);transform:translateY(-50%) translateX(2px);}
+.lb-caption{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  font-size:.65rem;font-weight:400;letter-spacing:.1em;
+  color:var(--w30);white-space:nowrap;
+}
+
+/* ─────────────────────────────────────
+   REVEAL
+───────────────────────────────────── */
+.r{opacity:0;transform:translateY(18px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1);}
+.r.on{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.09s;}.d2{transition-delay:.18s;}.d3{transition-delay:.27s;}.d4{transition-delay:.36s;}
+
+@keyframes riseIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* ─────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────── */
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  .nav-c{display:none;}
+  .back-wrap{padding:72px 20px 0;}
+  .proj-hero{grid-template-columns:1fr;padding-top:54px;}
+  .ph-right{min-height:50vw;order:-1;}
+  .ph-left{padding:36px 20px 48px;border-right:none;border-bottom:1px solid var(--line);}
+  .ph-year,.ph-cross{display:none;}
+  .section{padding:64px 20px;}
+  .ov-grid,.img-grid-wrap,.social-head{grid-template-columns:1fr;gap:32px;}
+  .pillars{grid-template-columns:1fr 1fr;}
+  .ig-3col{grid-template-columns:1fr 1fr;}
+  .ig-2col{grid-template-columns:1fr;}
+  .proj-nav{grid-template-columns:1fr 1fr;padding:0 20px 56px;}
+  .pn-grid{display:none;}
+  .cf{padding:60px 20px;}
+  .cf-inner{grid-template-columns:1fr;gap:36px;}
+  footer{padding:16px 20px;flex-direction:column;gap:4px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="cring"></div>
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <button class="lb-close" id="lbClose">✕</button>
+  <button class="lb-prev" id="lbPrev">←</button>
+  <div class="lb-img-wrap">
+    <div class="lb-glow"></div>
+    <img id="lbImg" src="" alt=""/>
+  </div>
+  <button class="lb-next" id="lbNext">→</button>
+  <div class="lb-caption" id="lbCap"></div>
+</div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-city">Paris · 2024 / 2025</div>
+  <div class="ld-title-wrap">
+    <div class="ld-title">Paris Fashion Week <em>Show</em></div>
+  </div>
+  <div class="ld-bar-wrap"><div class="ld-bar"></div></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-mark"></span>
+    Viktoria Khimich
+  </a>
+  <div class="nav-c">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <a href="index.html#contact" class="nav-pill">Available ↗</a>
+</nav>
+
+<!-- BACK -->
+<div class="back-wrap">
+  <a href="index.html#work" class="back">
+    <span class="back-arr">←</span> Back to projects
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
+<section class="proj-hero">
+  <div class="hero-glow">
+    <div class="hg1"></div>
+    <div class="hg2"></div>
+    <div class="hg3"></div>
+  </div>
+
+  <!-- LEFT -->
+  <div class="ph-left">
+    <div class="ph-eyebrow">
+      <span class="ph-eyebrow-line"></span>
+      Brand · Social · Print
+    </div>
+
+    <h1 class="ph-title">
+      Paris<br>Fashion<br>Week <span class="shine">Show</span>
+    </h1>
+
+    <p class="ph-desc">
+      Визуальная айдентика для Paris Fashion Week Show — пионерского события о моде, стиле и креативных индустриях. Логотип, печатная и цифровая продукция, мерч и контент для соцсетей.
+    </p>
+
+    <div class="ph-meta">
+      <div class="meta-row"><span class="meta-key">Year</span><span class="meta-val">2024 / 2025</span></div>
+      <div class="meta-row"><span class="meta-key">Role</span><span class="meta-val">Brand Designer</span></div>
+      <div class="meta-row"><span class="meta-key">Services</span><span class="meta-val">Branding, Art Direction,<br>Print, Digital, Social Media</span></div>
+      <div class="meta-row"><span class="meta-key">Tools</span><span class="meta-val">Photoshop, Illustrator,<br>After Effects, Blender</span></div>
+    </div>
+
+    <a href="#" class="ph-ig">View on Instagram ↗</a>
+  </div>
+
+  <!-- RIGHT — COVER IMAGE
+    Size: 840 × 960 px | object-fit: cover
+    Замени slot-ph на: <img src="cover.jpg" alt="Paris Fashion Week">
+  -->
+  <div class="ph-right">
+    <div class="cover-slot" data-src="cover.jpg">
+      <div class="slot-ph">
+        <div class="slot-ph-icon">🖼</div>
+        <div class="slot-ph-label">Cover Image</div>
+        <div class="slot-ph-size">840 × 960 px</div>
+      </div>
+    </div>
+    <div class="ph-year">PFW / 2024</div>
+    <div class="ph-cross">✛</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════
+     OVERVIEW
+═══════════════════════════════════ -->
+<section class="section" id="overview">
+  <div class="sec-glow sg-red" style="width:400px;height:400px;top:-100px;right:-100px;"></div>
+
+  <div class="r">
+    <div class="eyebrow"><span class="eyebrow-dash"></span>Overview</div>
+    <h2 class="sec-title">About<br>the project</h2>
+  </div>
+
+  <div class="ov-grid r d1">
+    <div>
+      <p class="sec-body">The goal was to create a bold and elegant visual identity that reflects the atmosphere of Paris, high fashion and the unique experience of the event.</p>
+      <blockquote class="ov-quote">"The identity works across digital, print and environmental applications."</blockquote>
+    </div>
+    <div class="sec-body">
+      The system needed to feel timeless yet modern — rooted in the visual codes of haute couture while remaining versatile across all touchpoints: social media posts, environmental signage, printed certificates, badges and branded merchandise.
+    </div>
+  </div>
+
+  <div class="pillars r d2">
+    <div class="pillar">
+      <span class="pillar-icon">◇</span>
+      <div class="pillar-name">Elegant</div>
+      <div class="pillar-desc">Timeless aesthetics inspired by haute couture</div>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">T</span>
+      <div class="pillar-name">Bold</div>
+      <div class="pillar-desc">High contrast visuals that stand out</div>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">◎</span>
+      <div class="pillar-name">Fashionable</div>
+      <div class="pillar-desc">Strong visual system with recognisable details</div>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">♡</span>
+      <div class="pillar-name">Versatile</div>
+      <div class="pillar-desc">Works across all media and formats</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════
+     SOCIAL MEDIA
+═══════════════════════════════════ -->
+<section class="section" id="social">
+  <div class="sec-glow sg-gold" style="width:300px;height:300px;bottom:-80px;left:-60px;"></div>
+
+  <div class="social-head r">
+    <div>
+      <div class="eyebrow"><span class="eyebrow-dash"></span>Social Media</div>
+      <h2 class="sec-title">Digital<br>presence</h2>
+    </div>
+    <p class="sec-body" style="max-width:400px;">Серия постов для Instagram и других социальных сетей, отражающих атмосферу и дух события.</p>
+  </div>
+
+  <!--
+  ══════════════════════════════════════════
+  SOCIAL MEDIA IMAGES — горизонтальный скролл
+  5 фото, высота 340px:
+    Social 1: 260 × 340 px
+    Social 2: 220 × 340 px
+    Social 3: 320 × 340 px
+    Social 4: 260 × 340 px
+    Social 5: 220 × 340 px
+  Замени slot-ph на: <img src="social1.jpg" alt="">
+  ══════════════════════════════════════════
+  -->
+  <div class="gallery-track r d1" id="socialGallery">
+
+    <div class="g-item gs1" data-src="social1.jpg">
+      <div class="slot-ph"><div class="slot-ph-icon">📷</div><div class="slot-ph-label">Social 1</div><div class="slot-ph-size">260 × 340 px</div></div>
+      <div class="g-zoom">⊕</div>
+    </div>
+    <div class="g-item gs2" data-src="social2.jpg">
+      <div class="slot-ph"><div class="slot-ph-icon">📷</div><div class="slot-ph-label">Social 2</div><div class="slot-ph-size">220 × 340 px</div></div>
+      <div class="g-zoom">⊕</div>
+    </div>
+    <div class="g-item gs3" data-src="social3.jpg">
+      <div class="slot-ph"><div class="slot-ph-icon">📷</div><div class="slot-ph-label">Social 3</div><div class="slot-ph-size">320 × 340 px</div></div>
+      <div class="g-zoom">⊕</div>
+    </div>
+    <div class="g-item gs4" data-src="social4.jpg">
+      <div class="slot-ph"><div class="slot-ph-icon">📷</div><div class="slot-ph-label">Social 4</div><div class="slot-ph-size">260 × 340 px</div></div>
+      <div class="g-zoom">⊕</div>
+    </div>
+    <div class="g-item gs5" data-src="social5.jpg">
+      <div class="slot-ph"><div class="slot-ph-icon">📷</div><div class="slot-ph-label">Social 5</div><div class="slot-ph-size">220 × 340 px</div></div>
+      <div class="g-zoom">⊕</div>
+    </div>
+
+  </div>
+  <div class="gallery-dots r">
+    <div class="gdot on"></div><div class="gdot"></div>
+    <div class="gdot"></div><div class="gdot"></div><div class="gdot"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════
+     BRAND IDENTITY
+═══════════════════════════════════ -->
+<section class="section" id="brand">
+  <div class="sec-glow sg-red" style="width:350px;height:350px;top:-80px;right:-60px;"></div>
+  <div class="img-grid-wrap r">
+    <div>
+      <div class="eyebrow"><span class="eyebrow-dash"></span>Brand Identity</div>
+      <h2 class="sec-title">Logo &amp;<br>Brand marks</h2>
+      <p class="sec-body" style="max-width:220px;">Логотип и фирменные элементы, основанные на контрастной типографике и лаконичных деталях.</p>
+    </div>
+
+    <!--
+    ══════════════════════════════════════════
+    BRAND IDENTITY IMAGES
+      Brand 1 (Logo main):  380 × 220 px
+      Brand 2 (Stamp/seal): 180 × 220 px
+      Brand 3 (QR / badge): 180 × 220 px
+    Замени slot-ph на: <img src="brand1.jpg" alt="">
+    ══════════════════════════════════════════
+    -->
+    <div class="ig-grid ig-3col d1">
+      <div class="img-slot ih-220" data-src="brand1.jpg">
+        <div class="slot-ph"><div class="slot-ph-icon">🏷</div><div class="slot-ph-label">Logo Main</div><div class="slot-ph-size">380 × 220 px</div></div>
+        <div class="g-zoom">⊕</div>
+      </div>
+      <div class="img-slot ih-220" data-src="brand2.jpg">
+        <div class="slot-ph"><div class="slot-ph-icon">🔵</div><div class="slot-ph-label">Stamp / Seal</div><div class="slot-ph-size">180 × 220 px</div></div>
+        <div class="g-zoom">⊕</div>
+      </div>
+      <div class="img-slot ih-220" data-src="brand3.jpg">
+        <div class="slot-ph"><div class="slot-ph-icon">⬜</div><div class="slot-ph-label">QR / Badge</div><div class="slot-ph-size">180 × 220 px</div></div>
+        <div class="g-zoom">⊕</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════
+     PRINT
+═══════════════════════════════════ -->
+<section class="section" id="print">
+  <div class="sec-glow sg-gold" style="width:280px;height:280px;bottom:-60px;right:-40px;"></div>
+  <div class="img-grid-wrap r">
+    <div>
+      <div class="eyebrow"><span class="eyebrow-dash"></span>Print &amp; Environment</div>
+      <h2 class="sec-title">Print<br>materials</h2>
+      <p class="sec-body" style="max-width:220px;">Сертификаты, бейджи, постеры и другая печатная продукция для гостей и участников.</p>
+    </div>
+
+    <!--
+    ══════════════════════════════════════════
+    PRINT IMAGES — 3 слота, высота 360px
+      Print 1: 360 × 360 px
+      Print 2: 360 × 360 px
+      Print 3: 360 × 360 px
+    Замени slot-ph на: <img src="print1.jpg" alt="">
+    ══════════════════════════════════════════
+    -->
+    <div class="ig-grid ig-3col d1">
+      <div class="img-slot ih-360" data-src="print1.jpg">
+        <div class="slot-ph"><div class="slot-ph-icon">📋</div><div class="slot-ph-label">Print 1</div><div class="slot-ph-size">360 × 360 px</div></div>
+        <div class="g-zoom">⊕</div>
+      </div>
+      <div class="img-slot ih-360" data-src="print2.jpg">
+        <div class="slot-ph"><div class="slot-ph-icon">📋</div><div class="slot-ph-label">Print 2</div><div class="slot-ph-size">360 × 360 px</div></div>
+        <div class="g-zoom">⊕</div>
+      </div>
+      <div class="img-slot ih-360" data-src="print3.jpg">
+        <div class="slot-ph"><div class="slot-ph-icon">📋</div><div class="slot-ph-label">Print 3</div><div class="slot-ph-size">360 × 360 px</div></div>
+        <div class="g-zoom">⊕</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════
+     MERCH
+═══════════════════════════════════ -->
+<section class="section" id="merch">
+  <div class="sec-glow sg-red" style="width:300px;height:300px;top:-60px;left:-60px;"></div>
+  <div class="img-grid-wrap r">
+    <div>
+      <div class="eyebrow"><span class="eyebrow-dash"></span>Merch &amp; Souvenirs</div>
+      <h2 class="sec-title">Merchandise</h2>
+      <p class="sec-body" style="max-width:220px;">Фирменный мерч: шоперы, футболки, блокноты — для гостей и команды события.</p>
+    </div>
+
+    <!--
+    ══════════════════════════════════════════
+    MERCH IMAGES — 3 квадратных слота
+      Merch 1 (Tote):     300 × 300 px
+      Merch 2 (T-shirt):  300 × 300 px
+      Merch 3 (Notebook): 300 × 300 px
+    Замени slot-ph на: <img src="merch1.jpg" alt="">
+    ══════════════════════════════════════════
+    -->
+    <div class="ig-grid ig-3col d1">
+      <div class="img-slot ih-300" data-src="merch1.jpg">
+        <div class="slot-ph"><div class="slot-ph-icon">👜</div><div class="slot-ph-label">Tote / Shopper</div><div class="slot-ph-size">300 × 300 px</div></div>
+        <div class="g-zoom">⊕</div>
+      </div>
+      <div class="img-slot ih-300" data-src="merch2.jpg">
+        <div class="slot-ph"><div class="slot-ph-icon">👕</div><div class="slot-ph-label">T-Shirt</div><div class="slot-ph-size">300 × 300 px</div></div>
+        <div class="g-zoom">⊕</div>
+      </div>
+      <div class="img-slot ih-300" data-src="merch3.jpg">
+        <div class="slot-ph"><div class="slot-ph-icon">📓</div><div class="slot-ph-label">Notebook</div><div class="slot-ph-size">300 × 300 px</div></div>
+        <div class="g-zoom">⊕</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════
+     PREV / NEXT
+═══════════════════════════════════ -->
+<div class="proj-nav r">
+  <a href="#" class="pn">
+    <span class="pn-arr">←</span>
+    <div>
+      <div class="pn-label">Previous project</div>
+      <div class="pn-name">New Names BFW by Mark Formelle</div>
+    </div>
+  </a>
+  <a href="index.html#work" class="pn-grid" title="All projects">⊞</a>
+  <a href="#" class="pn pn-r">
+    <div style="text-align:right;">
+      <div class="pn-label">Next project</div>
+      <div class="pn-name">Project 3 — добавь название</div>
+    </div>
+    <span class="pn-arr">→</span>
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════
+     CONTACT FOOTER
+═══════════════════════════════════ -->
+<div class="cf">
+  <div class="cf-inner">
+    <h2 class="cf-h">
+      Let's create something<br>
+      <span class="shine2">extraordinary.</span>
+    </h2>
+    <div class="cf-links">
+      <!-- ЗАМЕНИ на свои данные! -->
+      <a href="https://t.me/ВАШ_ЛОГИН" class="cf-link">
+        <div class="cfi">✈</div>
+        <div><div class="cfl">Telegram</div><div class="cfv">@ваш_логин</div></div>
+      </a>
+      <a href="mailto:ВАШ@EMAIL.COM" class="cf-link">
+        <div class="cfi">✉</div>
+        <div><div class="cfl">Email</div><div class="cfv">ваш@email.com</div></div>
+      </a>
+      <a href="#" class="cf-link">
+        <div class="cfi">↓</div>
+        <div><div class="cfl">Download CV</div><div class="cfv">PDF, 12 MB</div></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="fl">© 2026 Viktoria Khimich. All rights reserved.</span>
+  <span class="fr">Design with purpose.</span>
+</footer>
+
+<script>
+/* ── LOADER ── */
+window.addEventListener('load',()=>{
+  setTimeout(()=>document.getElementById('loader').classList.add('out'), 1100);
+});
+
+/* ── CURSOR ── */
+const cur=document.getElementById('cur'),cring=document.getElementById('cring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+},{passive:true});
+(function loop(){
+  rx+=(mx-rx)*.1;ry+=(my-ry)*.1;
+  cring.style.left=rx+'px';cring.style.top=ry+'px';
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a,button,[data-src],.g-item,.img-slot,.pillar').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
+
+/* ── NAV ── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('solid',window.scrollY>60);
+},{passive:true});
+
+/* ── SCROLL REVEAL ── */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});
+},{threshold:0.1});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+
+/* ── LIGHTBOX ── */
+const lb=document.getElementById('lb');
+const lbImg=document.getElementById('lbImg');
+const lbCap=document.getElementById('lbCap');
+let lbItems=[],lbIdx=0;
+
+function buildItems(){
+  lbItems=[];
+  document.querySelectorAll('[data-src]').forEach((el,i)=>{
+    const imgEl=el.querySelector('img');
+    lbItems.push({
+      src: imgEl ? imgEl.src : el.getAttribute('data-src'),
+      label: el.getAttribute('data-src'),
+      el
+    });
+  });
+}
+
+function openLb(idx){
+  buildItems();
+  lbIdx=((idx%lbItems.length)+lbItems.length)%lbItems.length;
+  lbImg.src=lbItems[lbIdx].src;
+  lbCap.textContent=(lbIdx+1)+' / '+lbItems.length;
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLb(){
+  lb.classList.remove('open');
+  document.body.style.overflow='';
+  setTimeout(()=>{lbImg.src='';},400);
+}
+
+document.querySelectorAll('[data-src]').forEach((el,i)=>{
+  el.style.cursor='zoom-in';
+  el.addEventListener('click',()=>{ buildItems(); openLb(i); });
+});
+document.getElementById('lbClose').addEventListener('click',closeLb);
+document.getElementById('lbPrev').addEventListener('click',()=>openLb(lbIdx-1));
+document.getElementById('lbNext').addEventListener('click',()=>openLb(lbIdx+1));
+lb.addEventListener('click',e=>{ if(e.target===lb)closeLb(); });
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')closeLb();
+  if(e.key==='ArrowLeft')openLb(lbIdx-1);
+  if(e.key==='ArrowRight')openLb(lbIdx+1);
+});
+
+/* ── GALLERY DOTS ── */
+const scrollEl=document.getElementById('socialGallery');
+const dots=document.querySelectorAll('.gdot');
+if(scrollEl&&dots.length){
+  scrollEl.addEventListener('scroll',()=>{
+    const p=scrollEl.scrollLeft/(scrollEl.scrollWidth-scrollEl.clientWidth);
+    const idx=Math.round(p*(dots.length-1));
+    dots.forEach((d,i)=>d.classList.toggle('on',i===idx));
+  },{passive:true});
+}
+</script>
+</body>
+</html>
