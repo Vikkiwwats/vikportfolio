@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dasha Zhenya//90s Wedding//RU
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:dasha-zhenya-20261031@dasha-zhenya-party-90s.humblefrost9.chatgpt.sit
+ e
+DTSTAMP:20261019T100000Z
+DTSTART:20261031T140000Z
+SUMMARY:Свадьба Даши и Жени — тусовка 90-х
+LOCATION:База отдыха и рыбалки «Васильевка»
+ \, Гомельский район
+DESCRIPTION:Дресс-код — стиль 90-х. Транспорт д
+ о места и обратно по домам без ночёвки. 
+ Время и место отправления уточните у Да
+ ши и Жени.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

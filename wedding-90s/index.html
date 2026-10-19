@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1e7cd">
+  <meta name="description" content="Даша и Женя зовут на самую крутую тусовку 90-х! 31 октября 2026, 17:00 — база «Васильевка», Гомельский район. Открой конверт и узнай свой шуточный образ.">
+  <meta property="og:title" content="Даша & Женя • Ты в списке!">
+  <meta property="og:description" content="31 октября, 17:00. Свадьба в стиле 90-х. Открой конверт — твоё досье уже готово.">
+  <meta property="og:image" content="https://vikkiwwats.github.io/vikportfolio/wedding-90s/assets/telegram-banner.jpg">
+  <meta property="og:url" content="https://vikkiwwats.github.io/vikportfolio/wedding-90s/">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://vikkiwwats.github.io/vikportfolio/wedding-90s/">
+  <title>Даша & Женя — не забудь, что ты приглашён на тусовку 90-х!</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/soviet-carpet.webp">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="hero-party.css">
+  <script src="characters.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#invitation">К приглашению</a>
+  <header class="header">
+    <a class="brand" href="#top" aria-label="Даша и Женя, в начало">Д<span>+</span>Ж<i>навсегда</i></a>
+    <nav aria-label="По странице"><a href="#story">Наш вайб</a><a href="#invitation">Где и когда</a></nav>
+    <div class="switches"><button id="motionToggle" class="text-button" type="button" aria-pressed="false" title="Уменьшить движение"><span aria-hidden="true">Ⅱ</span><span class="control-label">Тише анимацию</span></button><button id="soundToggle" class="sound-toggle" type="button" aria-pressed="false"><span class="tiny-record" aria-hidden="true"></span><span id="soundLabel">Включить вайб</span></button></div>
+  </header>
+
+  <main>
+    <div class="hero-party">
+    <div class="hero-carpet" aria-hidden="true"></div>
+    <div class="hero-confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <section class="hero section-wrap" id="top" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> ОСОБОЕ ПРИГЛАШЕНИЕ • 31.10.2026</p>
+        <h1 id="heroTitle"><span class="reminder-label">НЕ ЗАБУДЬ,</span> <span class="invite-line">ЧТО ТЫ ПРИГЛАШЁН</span> <span class="invite-line">НА ТУСОВКУ</span> <span class="era">90<span class="era-x">-Х</span><span class="hero-star" aria-hidden="true">✳</span></span></h1>
+        <p class="hero-intro">Даша и Женя собирают своих.<br>Будет любовь. Будут танцы. Будешь ты.</p>
+        <div class="envelope-area">
+          <span class="hand-note" aria-hidden="true">Пс-с, это тебе! <span>↴</span></span>
+          <button class="envelope" id="openEnvelope" type="button" aria-controls="dossier" aria-expanded="false">
+            <span class="envelope-back" aria-hidden="true"></span><span class="envelope-letter" aria-hidden="true">ТВОЁ ДОСЬЕ УЖЕ ВНУТРИ ♥</span><span class="envelope-flap" aria-hidden="true"></span>
+            <span class="envelope-front"><span class="envelope-label">ЛИЧНО В РУКИ / НЕ СВЕТИТЬ</span><span class="envelope-question">Хочешь узнать,<br>какой ты бандит 90-х?</span><span class="envelope-cta">ОТКРОЙ КОНВЕРТ <span aria-hidden="true">↗</span></span></span>
+            <span class="seal" aria-hidden="true">♥</span>
+          </button>
+          <p class="micro">10 шуточных досье. Твоё — дело случая.</p>
+        </div>
+      </div>
+      <div class="hero-collage" aria-label="Даша и Женя в стиле 90-х">
+        <div class="party-cd cd-one" aria-hidden="true"><span>ЛЮБОВЬ • 90</span></div>
+        <div class="party-cd cd-two" aria-hidden="true"><span>Д + Ж</span></div>
+        <div class="party-cd cd-three" aria-hidden="true"><span>ТОЛЬКО ХИТЫ</span></div>
+        <div class="party-cd cd-four" aria-hidden="true"><span>НАВСЕГДА</span></div>
+        <span class="party-glint glint-one" aria-hidden="true">✦</span><span class="party-glint glint-two" aria-hidden="true">✦</span><span class="party-glint glint-three" aria-hidden="true">✧</span>
+        <div class="scribble-heart" aria-hidden="true">♡</div>
+        <div class="photo print hero-photo"><span class="tape tape-top" aria-hidden="true"></span><img src="assets/couple-phone.webp" width="960" height="1200" fetchpriority="high" alt="Даша и Женя в спортивных куртках 90-х с ретро-телефоном"><div class="print-caption"><span>Даша <em>&</em> Женя</span><small>ЛЮБОВЬ НАВСЕГДА. БЕЗ ВАРИАНТОВ.</small></div></div>
+        <span class="sticker party-sticker">ДВА СЕРДЦА.<br>ОДНА<br>ВЕЧЕРИНКА!</span>
+        <div class="record hero-record" aria-hidden="true"><span>LOVE<br><b>SIDE A</b><br>31 • 10 • 26</span></div>
+        <div class="mini-cassette hero-cassette" aria-hidden="true"><span>Наши люди ♥</span><i></i><b>SIDE A / 90 MIN</b></div>
+        <span class="doodle-spark spark-one" aria-hidden="true">✧</span>
+        <span class="photo-note" aria-hidden="true">вместе — целая банда!</span>
+      </div>
+    </section>
+    </div>
+
+    <div class="ticker" aria-hidden="true"><div><span>ЛЮБОВЬ ПО ПОНЯТИЯМ</span><i>✳</i><span>СВОИ ЛЮДИ — СОЧТЁМСЯ ОБЪЯТИЯМИ</span><i>✳</i><span>31 ОКТЯБРЯ • БУДЕТ ГРОМКО</span><i>✳</i><span>ЛЮБОВЬ ПО ПОНЯТИЯМ</span><i>✳</i><span>СВОИ ЛЮДИ — СОЧТЁМСЯ ОБЪЯТИЯМИ</span><i>✳</i><span>31 ОКТЯБРЯ • БУДЕТ ГРОМКО</span><i>✳</i></div></div>
+
+    <section class="dossier-section" id="dossier" hidden aria-labelledby="dossierTitle">
+      <div class="section-wrap">
+        <div class="section-heading light"><p class="eyebrow">АРХИВ ВЕСЁЛЫХ ЛИЧНОСТЕЙ / РАССЕКРЕЧЕНО</p><h2 id="dossierTitle" tabindex="-1">Ну всё. Ты в банде.</h2><p>Твоё шуточное досье на этот вечер.</p></div>
+        <article class="dossier-paper" id="dossierPaper">
+          <div class="dossier-visual"><span class="file-number" id="fileNumber">ДОСЬЕ № 01 / 10</span><img id="characterImage" src="assets/olivier.webp" alt="" width="800" height="800"><span class="dossier-stamp">ВХОД<br>РАЗРЕШЁН</span></div>
+          <div class="dossier-copy" aria-live="polite" aria-atomic="true"><span class="eyebrow">ТВОЯ РОЛЬ В ЭТОЙ ИСТОРИИ</span><h3 id="characterName"></h3><p class="character-tag" id="characterTag"></p><p id="characterDescription" class="character-description"></p><div class="case-line"><span>ОСОБАЯ ПРИМЕТА</span><p id="characterTrait"></p></div><div class="case-line"><span>МИССИЯ НА СВАДЬБЕ</span><p id="characterMission"></p></div><div class="dossier-buttons"><button id="drawAgain" class="button button-dark" type="button">Ещё одно досье <span aria-hidden="true">↻</span></button><button id="copyDossier" class="text-button" type="button">Скопировать своё</button></div><span id="drawStatus" class="micro" role="status"></span></div>
+        </article>
+        <a class="down-link" href="#story"><span>Твой образ есть. Теперь знакомься с главными героями.</span><span class="bounce-arrow" aria-hidden="true">↓<br>↓</span></a>
+      </div>
+    </section>
+
+    <section class="story" id="story" aria-labelledby="storyTitle">
+      <div class="section-wrap story-inner">
+        <div class="story-heading reveal"><p class="eyebrow">КАССЕТА ПЕРВАЯ / ПРО ЛЮБОВЬ</p><h2 id="storyTitle">У НАС ВСЁ<br><span>СЕРЬЁЗНО.</span><em>А ВЕЧЕРИНКА — НЕТ.</em></h2><p>Даша + Женя = семья.<br>А семья без своих людей — какая семья?<br>Поэтому собираемся все. Красиво, шумно и с любовью.</p></div>
+        <div class="story-stage" aria-label="Фотоколлаж молодожёнов">
+          <figure class="print story-photo story-car reveal"><span class="tape" aria-hidden="true"></span><img src="assets/couple-car.webp" width="1200" height="800" loading="lazy" alt="Даша и Женя у ретро-автомобиля во дворе"><figcaption>СВОИ ЛЮДИ. СВОЯ ИСТОРИЯ. ♥</figcaption></figure>
+          <figure class="print story-photo story-disco reveal"><img src="assets/couple-disco.webp" width="1200" height="800" loading="lazy" alt="Даша и Женя танцуют под диско-шаром"><figcaption>С ЭТОГО МОМЕНТА — ТОЛЬКО ВМЕСТЕ.</figcaption></figure>
+          <div class="mini-cassette story-cassette reveal" aria-hidden="true"><span>Любовь с 90-х ♡</span><i></i><b>НАША ЛЮБИМАЯ ЗАПИСЬ</b></div>
+          <span class="story-star" aria-hidden="true">✳</span><span class="story-heart" aria-hidden="true">♡</span><span class="sticker story-sticker">ЭТО<br>ПО ЛЮБВИ!</span>
+        </div>
+        <p class="story-footnote">Кадры с вайбом 90-х — творческие AI-образы по фотографиям пары.</p>
+      </div>
+    </section>
+
+    <section class="invitation section-wrap" id="invitation" aria-labelledby="invitationTitle">
+      <div class="section-heading reveal"><p class="eyebrow">КАССЕТА ВТОРАЯ / МЕСТО ВСТРЕЧИ</p><h2 id="invitationTitle">СТРЕЛКА<br>ЗАБИТА.</h2><p class="invite-lead">Приглашаем тебя на нашу свадьбу.<br>Самая крутая тусовка 90-х ждёт своих!</p></div>
+      <div class="event-layout">
+        <div class="date-ticket reveal"><div class="ticket-top"><span>ПРОПУСК НА ВЕЧЕРИНКУ</span><span>№ 311026</span></div><div class="ticket-date">31<span>ОКТЯБРЯ</span></div><div class="ticket-time"><span>СУББОТА / 2026</span><b>17:00</b></div><div class="ticket-bottom"><span>ДРЕСС-КОД: 90-Е</span><span>♥ Д + Ж</span></div><div class="barcode" aria-hidden="true"></div><p>24 октября — день нашей свадьбы.<br><strong>31 октября — отмечаем с тобой!</strong></p></div>
+        <div class="event-info reveal"><div class="detail-row"><span class="detail-number">01</span><div><span class="eyebrow">ГДЕ СОБИРАЕМСЯ</span><h3>«Васильевка»</h3><p>База отдыха и рыбалки,<br>Гомельский район.</p><a class="underlined" href="https://yandex.by/maps/?text=%D0%B1%D0%B0%D0%B7%D0%B0%20%D0%BE%D1%82%D0%B4%D1%8B%D1%85%D0%B0%20%D0%B8%20%D1%80%D1%8B%D0%B1%D0%B0%D0%BB%D0%BA%D0%B8%20%D0%92%D0%B0%D1%81%D0%B8%D0%BB%D1%8C%D0%B5%D0%B2%D0%BA%D0%B0%20%D0%93%D0%BE%D0%BC%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9%20%D1%80%D0%B0%D0%B9%D0%BE%D0%BD" target="_blank" rel="noopener noreferrer">Найти на карте <span aria-hidden="true">↗</span></a></div></div><div class="detail-row"><span class="detail-number">02</span><div><span class="eyebrow">КАК ДОБИРАЕМСЯ</span><h3>Своих подвезём</h3><p>Для гостей будет транспорт до места праздника и обратно по домам — без ночёвки.</p><p class="muted">Время и место отправления уточняй у Даши и Жени.</p></div></div><div class="detail-row"><span class="detail-number">03</span><div><span class="eyebrow">ЧТО БЕРЁМ С СОБОЙ</span><h3>Себя. И настроение.</h3><p>Приходи обниматься, танцевать и праздновать. Остальное — дело семейное.</p></div></div><a href="wedding.ics" class="button button-dark calendar-button" download>Забить стрелку в календарь <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="dresscode" aria-labelledby="dressTitle"><div class="section-wrap"><div class="dress-heading reveal"><div><p class="eyebrow">КАССЕТА ТРЕТЬЯ / НАВОДИМ КРАСОТУ</p><h2 id="dressTitle">ПО ФОРМЕ —<br><em>БЕЗ ФОРМАЛЬНОСТЕЙ.</em></h2></div><p>Поддержи наш стиль 90-х!<br>Чем смелее образ, тем теплее воспоминания.<br>Главное — чтобы тебе было удобно танцевать.</p></div><div class="look-grid"><article class="look-card reveal"><div class="look-image"><img src="assets/boss.webp" width="800" height="800" loading="lazy" alt="Шуточный персонаж в малиновом пиджаке"></div><span class="look-index">ОБРАЗ 01</span><h3>По-авторитетному</h3><p>Малиновый пиджак, цепь, очки.<br>Серьёзный вид — по желанию.</p></article><article class="look-card reveal"><div class="look-image"><img src="assets/queen.webp" width="800" height="800" loading="lazy" alt="Девушка в джинсовой куртке и узких очках"></div><span class="look-index">ОБРАЗ 02</span><h3>На стиле района</h3><p>Деним, яркий макияж, высокие хвосты.<br>И уверенность на максималках.</p></article><article class="look-card reveal"><div class="look-image"><img src="assets/cassette.webp" width="800" height="800" loading="lazy" alt="Девушка в ярком спортивном костюме с магнитофоном"></div><span class="look-index">ОБРАЗ 03</span><h3>Спортивный шик</h3><p>Олимпийка, кроссовки, неон.<br>Танцпол уже чувствует угрозу.</p></article></div><div class="dress-note"><span aria-hidden="true">★</span><p>Образ из досье — только шутка.<br>Одевайся в любые 90-е, которые тебе по душе.</p><div class="palette" aria-label="Цвета настроения: розовый, жёлтый, бирюзовый, фиолетовый"><i></i><i></i><i></i><i></i></div></div></div></section>
+
+    <section class="album section-wrap" aria-labelledby="albumTitle"><div class="album-top reveal"><div><p class="eyebrow">ОРИГИНАЛЬНАЯ ОБЛОЖКА НАШЕЙ ИСТОРИИ</p><h2 id="albumTitle">ТЕ САМЫЕ ДВОЕ.</h2></div><p>Узнал своих? Значит, адресом не ошибся.</p></div><div class="album-grid"><button class="poster-button reveal" type="button" data-poster="assets/poster-blue.jpg" data-caption="Даша и Женя — свадьба 24 октября 2026"><img src="assets/poster-blue.jpg" alt="Оригинальный свадебный постер Даши и Жени, дата свадьбы — 24 октября 2026" width="853" height="1280" loading="lazy"><span>НАША СВАДЬБА • 24.10.2026 <b>↗</b></span></button><div class="album-right"><p class="album-quote reveal">«Два сердца.<br>Одна вечеринка.<br><em>И все свои».</em></p><button class="poster-button poster-beige reveal" type="button" data-poster="assets/poster-beige.jpg" data-caption="Приглашение: 31 октября, 17:00, база «Васильевка»"><img src="assets/poster-beige.jpg" alt="Оригинальное приглашение: праздник 31 октября в 17:00, Васильевка" width="720" height="1280" loading="lazy"><span>ПРАЗДНУЕМ • 31.10.2026 <b>↗</b></span></button></div></div></section>
+
+    <section class="finale" aria-labelledby="finalTitle"><div class="section-wrap finale-inner"><span class="eyebrow">КОНЕЦ СТОРОНЫ А / НАЧАЛО ЧЕГО-ТО БОЛЬШОГО</span><h2 id="finalTitle">БЕЗ ТЕБЯ<br><span>НЕ ТОТ ДВИЖ.</span></h2><p>31 октября. 17:00. «Васильевка».<br>Ждём тебя. Обнимаем уже сейчас.</p><div class="final-signature">Даша <span>♥</span> Женя</div><div class="final-actions"><a class="button button-pink" href="wedding.ics" download>Сохранить дату <span aria-hidden="true">↗</span></a><button class="button button-outline" type="button" id="shareInvite">Поделиться приглашением <span aria-hidden="true">↗</span></button></div><a class="back-top" href="#top">Ещё раз открыть конверт ↑</a><div class="record finale-record" aria-hidden="true"><span>Д + Ж<br><b>НАВСЕГДА</b><br>SIDE B</span></div></div></section>
+  </main>
+  <footer class="footer"><span>СДЕЛАНО ПО ЛЮБВИ. ВАЙБ — ИЗ 90-Х.</span><span>Д + Ж • 2026 <span aria-hidden="true">♥</span></span></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="posterDialog" class="poster-dialog" aria-labelledby="posterCaption"><button type="button" id="closePoster" class="dialog-close" aria-label="Закрыть постер">×</button><img id="largePoster" src="assets/poster-blue.jpg" alt=""><p id="posterCaption"></p></dialog>
+  <noscript><p class="noscript">Приглашение доступно ниже. Для конверта, случайного досье и музыки включи JavaScript.</p></noscript>
+</body>
+</html>
