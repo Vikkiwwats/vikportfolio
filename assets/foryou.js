@@ -41,31 +41,26 @@
     });
   };
 
-  const hero = document.querySelector('.fy-hero');
-  const stage = document.querySelector('.fy-hero-inner');
-  const stems = [...document.querySelectorAll('[data-grow-stem]')];
-  const leaves = [...document.querySelectorAll('[data-grow-leaf]')];
-  let lastGrowth = -1;
-  const paintGrowth = () => {
-    if (!hero || !stage || (paused && !reduced.matches)) return;
-    const distance = Math.max(1, hero.offsetHeight - stage.offsetHeight);
-    const top = hero.getBoundingClientRect().top - parseFloat(getComputedStyle(stage).top || 0);
-    const growth = reduced.matches || !root.classList.contains('fy-js') ? 1 : Math.max(0, Math.min(1, -top / distance));
-    if (Math.abs(growth-lastGrowth) < .001) return;
-    lastGrowth = growth;
-    stems.forEach(el => {
-      const p = Math.max(0, Math.min(1, (growth - Number(el.dataset.start)) / Number(el.dataset.duration)));
-      el.style.strokeDashoffset = (1-p).toFixed(4);
-    });
-    leaves.forEach(el => {
-      const p = Math.max(0, Math.min(1, (growth - Number(el.dataset.at) + .06) / .1));
-      const eased = p*p*(3-2*p);
-      el.setAttribute('transform', `scale(${eased.toFixed(3)})`);
-      el.setAttribute('opacity', eased.toFixed(3));
-    });
+  const hero = document.querySelector('.fy-cinematic');
+  let sceneShift = -1;
+  const paintScene = () => {
+    if (!hero) return;
+    const progress = isStill() ? 0 : Math.max(0, Math.min(1, -hero.getBoundingClientRect().top / hero.offsetHeight));
+    if (Math.abs(progress - sceneShift) < .001) return;
+    sceneShift = progress;
+    hero.style.setProperty('--scene-bg-y', `${(progress * 55).toFixed(1)}px`);
+    hero.style.setProperty('--scene-art-y', `${(progress * -65).toFixed(1)}px`);
   };
+  hero?.addEventListener('pointermove', event => {
+    if (isStill() || event.pointerType === 'touch') return;
+    const box = hero.getBoundingClientRect();
+    hero.style.setProperty('--look-x', `${((event.clientX-box.left)/box.width-.5)*14}px`);
+    hero.style.setProperty('--look-y', `${((event.clientY-box.top)/box.height-.5)*10}px`);
+  }, {passive:true});
+  const resetLook = () => { hero?.style.setProperty('--look-x','0px'); hero?.style.setProperty('--look-y','0px'); };
+  hero?.addEventListener('pointerleave', resetLook, {passive:true});
   const paintBirds = stamp => {
-    paintGrowth();
+    paintScene();
     animation = 0;
     const active = !isStill() && !document.hidden;
     if (active && lastPaint) clock += Math.min(50, stamp - lastPaint);
@@ -96,6 +91,7 @@
   const requestMotion = () => { if (!animation) animation = requestAnimationFrame(paintBirds); };
   const syncMotion = () => {
     root.classList.toggle('fy-motion-paused', isStill());
+    if (isStill()) resetLook();
     if (motionToggle) {
       motionToggle.disabled = reduced.matches;
       motionToggle.setAttribute('aria-pressed', String(isStill()));

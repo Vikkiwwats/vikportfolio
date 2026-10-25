@@ -33,30 +33,81 @@ html.fy-document{scroll-behavior:smooth;scroll-padding-top:96px;background:#eee8
 @media(max-width:360px){.fy-painted-dove-large{top:175px}.fy-painted-dove-second{width:190px;height:190px!important;right:-100px;top:200px}}
 .fy-prologue-mark>img{filter:brightness(.78) saturate(.85) drop-shadow(0 2px 1px #7b672e15)}
 
-/* The author's original mark is unchanged; botanical details grow on separate layers. */
+
 .fy-hero{--fy-stage-height:max(760px,calc(100svh - 76px));--fy-growth-distance:440px;min-height:0;height:calc(var(--fy-stage-height) + var(--fy-growth-distance));overflow:clip}
 .fy-hero-inner{position:sticky;top:76px;height:var(--fy-stage-height);min-height:0;max-height:none}
-.fy-botanical-mark{position:absolute;left:50%;top:25px;translate:-50% 0;width:min(850px,78vw);aspect-ratio:1000/620;z-index:6;pointer-events:none}
-.fy-botanical-vines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 2px 2px #27351c25)}
-.fy-vines-back{z-index:0}.fy-vines-front{z-index:2}
-.fy-source-sign{position:absolute;left:20.5%;top:28%;width:59%;height:auto!important;filter:drop-shadow(0 2px 3px #2d3a2029);z-index:1}
-.fy-growing-stem{fill:none;stroke:#ddc998;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
-.fy-vines-front .fy-growing-stem{stroke-width:1.25}
 .fy-hero-signature{top:clamp(470px,56vh,540px)}
 .fy-chapter{padding-top:100px;padding-bottom:50px}.fy-posts-section{padding-top:100px}.fy-closing{padding-top:90px}
 .fy-print-certificate{grid-column:1/10;margin-right:0}
 .fy-print-cards{grid-column:7/-1;margin-top:250px;margin-left:-75px;margin-right:-40px}
 .fy-print-sewing{margin-top:-15px}
-@media(min-width:1600px){.fy-botanical-mark{width:940px;top:10px}.fy-hero-signature{top:550px}}
-@media(max-width:1100px){.fy-botanical-mark{width:min(790px,90vw);top:40px}.fy-print-cards{margin-top:210px}}
-@media(max-width:760px){.fy-hero{--fy-stage-height:max(740px,calc(100svh - 68px));--fy-growth-distance:360px}.fy-hero-inner{top:68px}.fy-botanical-mark{width:96vw;top:90px}.fy-hero-signature{top:440px}.fy-chapter,.fy-posts-section{padding-top:70px;padding-bottom:35px}.fy-closing{padding-top:65px}.fy-print-cards{margin-top:170px}}
-@media(max-width:560px){.fy-hero{--fy-stage-height:max(730px,calc(100svh - 68px));--fy-growth-distance:310px}.fy-botanical-mark{width:120vw;max-width:480px;top:100px}.fy-source-sign{left:19%;width:62%;top:26%}.fy-hero-signature{top:390px}.fy-painted-dove-large{top:195px}.fy-painted-dove-second{top:230px}.fy-print-certificate,.fy-print-cards,.fy-print-sewing{width:100%;margin:0}.fy-print-cards,.fy-print-sewing{margin-top:-5px}.fy-chapter,.fy-posts-section{padding-top:60px;padding-bottom:25px}.fy-closing{padding-top:60px}}
-@media(max-width:360px){.fy-botanical-mark{top:120px}.fy-painted-dove-large{top:215px}.fy-painted-dove-second{top:235px}}
+@media(min-width:1600px){.fy-hero-signature{top:550px}}
+@media(max-width:1100px){.fy-print-cards{margin-top:210px}}
+@media(max-width:760px){.fy-hero{--fy-stage-height:max(740px,calc(100svh - 68px));--fy-growth-distance:360px}.fy-hero-inner{top:68px}.fy-hero-signature{top:440px}.fy-chapter,.fy-posts-section{padding-top:70px;padding-bottom:35px}.fy-closing{padding-top:65px}.fy-print-cards{margin-top:170px}}
+@media(max-width:560px){.fy-hero{--fy-stage-height:max(730px,calc(100svh - 68px));--fy-growth-distance:310px}.fy-hero-signature{top:390px}.fy-painted-dove-large{top:195px}.fy-painted-dove-second{top:230px}.fy-print-certificate,.fy-print-cards,.fy-print-sewing{width:100%;margin:0}.fy-print-cards,.fy-print-sewing{margin-top:-5px}.fy-chapter,.fy-posts-section{padding-top:60px;padding-bottom:25px}.fy-closing{padding-top:60px}}
+@media(max-width:360px){.fy-painted-dove-large{top:215px}.fy-painted-dove-second{top:235px}}
 @media(prefers-reduced-motion:reduce){.fy-hero{height:var(--fy-stage-height)}.fy-hero-inner{position:relative;top:0}}
 
 @media(min-width:561px){.fy-print-cards{grid-column:8/-1;margin-left:-15px;margin-right:-25px;margin-top:265px}}
 @media(min-width:561px) and (max-width:1100px){.fy-print-cards{margin-top:205px}}
 @media(min-width:561px) and (max-width:760px){.fy-print-cards{margin-top:160px}}
 
-@media(max-width:560px){.fy-botanical-mark{top:25px}}
-@media(max-width:360px){.fy-botanical-mark{top:45px}}
+@media(max-width:560px){}
+@media(max-width:360px){}
+
+/* Cinematic oil-painting opening. No sticky stage, wreath or growing branches. */
+.fy-hero.fy-cinematic{height:min(920px,calc(100svh - 76px));min-height:760px;overflow:hidden;background:#535b3c;isolation:isolate;--look-x:0px;--look-y:0px;--scene-bg-y:0px;--scene-art-y:0px}
+.fy-cinematic .fy-oil-bg{inset:-8% 0;width:100%;height:116%!important;object-fit:cover;object-position:50% 48%;transform:translateY(var(--scene-bg-y));filter:saturate(1.06);z-index:-3}
+.fy-cinema-light{position:absolute;inset:0;pointer-events:none;z-index:-1;background:linear-gradient(90deg,#26321edb 0%,#303b2380 33%,#3d472b06 70%),radial-gradient(ellipse at 88% 15%,#f9e5a647,transparent 56%)}
+.fy-cinema-stage{position:relative;width:100%;height:100%;min-height:inherit}
+.fy-cinema-overline{position:absolute;left:50%;translate:-50% 0;top:38px;display:flex;justify-content:space-between;align-items:center;gap:24px;text-transform:uppercase;letter-spacing:.2em;font-size:9px;color:#efdfb4;z-index:6}
+.fy-cinema-overline>span:last-child{font-family:Georgia,serif;text-transform:none;letter-spacing:.08em;font-style:italic;font-size:13px;color:#f0e5c8}
+.fy-cinema-layout{height:100%;display:grid;grid-template-columns:47% 53%;align-items:center;position:relative;z-index:5}
+.fy-cinema-intro{width:100%;max-width:440px;padding-bottom:20px;position:relative;z-index:5}
+.fy-cinema-wordmark{width:100%;position:relative}.fy-cinema-wordmark>img{width:100%;height:auto;filter:drop-shadow(0 5px 15px #17231020)}
+.fy-cinema-sheen{position:absolute;inset:0;pointer-events:none;mask:url('for-you-logo-ivory.svg') center/contain no-repeat;background:linear-gradient(110deg,transparent 30%,#efd397 47%,#fff6d6 50%,transparent 64%) -140% 0/220% 100% no-repeat;mix-blend-mode:soft-light;animation:fy-cinema-shine 11s ease-in-out infinite;opacity:.6}
+.fy-cinema-signature{display:block;width:245px;height:86px;margin:14px 0 9px;background:linear-gradient(110deg,#cfac60,#fff1c3 48%,#ccaa68);mask:url('images/for-you/shine-bright-original.webp') center/contain no-repeat}
+.fy-cinema-description{font-size:13px;line-height:1.95;letter-spacing:.035em;color:#e5e0c9;margin-top:14px!important;max-width:280px}
+.fy-cinema-link{display:inline-flex;align-items:center;gap:32px;margin-top:26px;padding:0 0 10px;border-bottom:1px solid #d9c38b70;font-size:11px;letter-spacing:.04em;color:#f2e7c9!important;transition:gap .3s,border-color .3s}
+.fy-cinema-arrow{width:37px;height:37px;border:1px solid #ddc79299;border-radius:50%;display:grid;place-items:center;font-size:17px;transition:background .3s,color .3s}
+.fy-cinema-link:hover{gap:45px;border-color:#ead7a2}.fy-cinema-link:hover .fy-cinema-arrow{background:#eddfb7;color:#34412a}
+.fy-cinema-dove{position:absolute;width:min(73vw,1100px);aspect-ratio:1;right:-13%;top:-7%;z-index:3;pointer-events:none;transform:translate3d(var(--look-x),calc(var(--look-y) + var(--scene-art-y)),0);transition:transform .6s cubic-bezier(.16,.65,.3,1)}
+.fy-cinema-dove-facing{width:100%;height:100%;transform:scaleX(-1)}
+.fy-cinema-dove img{width:100%;height:100%!important;object-fit:contain;filter:drop-shadow(0 18px 18px #1a251e1c);animation:fy-cinema-hover 9s ease-in-out infinite;transform-origin:52% 59%}
+.fy-cinema-flight-1{width:145px;left:48%;top:11%;--bird-facing:-1;opacity:.8}.fy-cinema-flight-2{width:115px;right:23%;bottom:8%;opacity:.85}.fy-cinema-flight-3{width:70px;left:40%;bottom:21%;--bird-facing:-1;opacity:.6}
+.fy-cinema-foot{position:absolute;bottom:27px;left:50%;translate:-50% 0;display:flex;justify-content:space-between;gap:24px;align-items:center;z-index:6;color:#ddd9be;font-size:8px;letter-spacing:.05em;border-top:1px solid #d3c28a42;padding-top:18px}
+.fy-cinema-scroll{display:flex;align-items:center;gap:10px;font-size:8px;opacity:.75}.fy-cinema-scroll i{display:block;width:1px;height:24px;background:linear-gradient(transparent,#efdaaa);animation:fy-cinema-scroll 2.7s ease-in-out infinite}
+.fy-cinema-dust{position:absolute;inset:0;pointer-events:none;z-index:2}.fy-cinema-dust i{position:absolute;width:2px;height:2px;border-radius:50%;background:#f6e8b0;box-shadow:0 0 8px #f0da98;opacity:0;animation:fy-gold-mote 8s ease-in-out infinite}.fy-cinema-dust i:nth-child(1){left:44%;top:24%;animation-delay:-1s}.fy-cinema-dust i:nth-child(2){left:60%;top:75%;animation-delay:-4s}.fy-cinema-dust i:nth-child(3){left:82%;top:22%;animation-delay:-6s}.fy-cinema-dust i:nth-child(4){left:91%;top:67%;animation-delay:-2s}.fy-cinema-dust i:nth-child(5){left:38%;top:55%;animation-delay:-5s}
+.fy-perch{position:absolute;display:block;width:140px;height:auto;aspect-ratio:1;pointer-events:none;z-index:5;animation:fy-perch-life 7s ease-in-out var(--perch-delay,0s) infinite;transform-origin:50% 75%}
+.fy-perch>img{width:100%;height:100%!important;object-fit:contain;filter:drop-shadow(0 3px 2px #62532312)}
+.fy-perch-identity{left:-44px;top:3px;width:140px;--perch-direction:1}
+.fy-perch-pack-top{right:3%;top:-25px;width:130px;--perch-direction:-1}.fy-perch-pack-low{left:0;bottom:100px;width:125px;--perch-direction:1}
+.fy-perch-print-top{right:4%;top:-28px;width:150px;--perch-direction:-1}.fy-perch-print-low{left:1%;bottom:45px;width:135px;--perch-direction:1}
+.fy-perch-post-top{left:0;top:-25px;width:140px;--perch-direction:1}.fy-perch-post-low{right:0;bottom:-15px;width:150px;--perch-direction:-1}
+.fy-closing{isolation:isolate}.fy-finale-flock{position:absolute;inset:0;pointer-events:none;z-index:-1}
+.fy-finale-painted{position:absolute;width:235px;aspect-ratio:1}.fy-finale-painted img{width:100%;height:100%!important;object-fit:contain;animation:fy-finale-hover 10s ease-in-out infinite}
+.fy-finale-painted-left{left:-10px;top:160px}.fy-finale-painted-right{right:-15px;top:335px;transform:scaleX(-1);width:205px}.fy-finale-painted-right img{animation-delay:-5s}
+.fy-finale-bird-1{width:105px;left:13%;top:30px;--bird-facing:-1}.fy-finale-bird-2{width:120px;right:10%;top:105px}.fy-finale-bird-3{width:95px;left:20%;bottom:22px}.fy-finale-bird-4{width:90px;right:19%;bottom:8px;--bird-facing:-1}
+.fy-motion-paused .fy-cinema-dove img,.fy-motion-paused .fy-cinema-sheen,.fy-motion-paused .fy-cinema-dust i,.fy-motion-paused .fy-cinema-scroll i,.fy-motion-paused .fy-perch,.fy-motion-paused .fy-finale-painted img{animation-play-state:paused}
+@keyframes fy-cinema-hover{0%,100%{transform:translateY(4px) rotate(-6deg) scale(1)}50%{transform:translateY(-15px) rotate(-3deg) scale(1.012)}}
+@keyframes fy-cinema-shine{0%,60%,100%{background-position:-140% 0}85%{background-position:180% 0}}
+@keyframes fy-cinema-scroll{0%,100%{opacity:.4;transform:translateY(-4px)}50%{opacity:1;transform:translateY(4px)}}
+@keyframes fy-gold-mote{0%,100%{opacity:0;transform:translate(0,14px)}35%{opacity:.6}75%{opacity:0;transform:translate(12px,-20px)}}
+@keyframes fy-perch-life{0%,100%{transform:scaleX(var(--perch-direction,1)) rotate(-.4deg)}50%{transform:scaleX(var(--perch-direction,1)) rotate(.5deg) translateY(-1px)}}
+@keyframes fy-finale-hover{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-11px) rotate(1deg)}}
+@media(min-width:1600px){.fy-cinema-intro{max-width:480px}.fy-cinema-dove{right:-6%;top:-15%;width:66vw}}
+@media(max-width:1100px){.fy-cinema-intro{max-width:370px}.fy-cinema-dove{width:80vw;right:-20%;top:0}.fy-cinema-flight-1{left:46%;top:12%;width:110px}.fy-cinema-signature{width:225px;height:76px}.fy-cinema-scroll{display:none}.fy-perch-identity{left:-18px;width:115px}.fy-finale-painted-left{left:-15px;width:195px}.fy-finale-painted-right{right:-20px;width:170px}}
+@media(max-width:760px){.fy-hero.fy-cinematic{height:calc(100svh - 68px);min-height:750px;max-height:880px}.fy-cinema-layout{grid-template-columns:49% 51%}.fy-cinema-intro{max-width:300px}.fy-cinema-dove{width:90vw;right:-29%;top:10%}.fy-cinema-overline{top:28px;font-size:8px}.fy-cinema-overline>span:last-child{font-size:11px}.fy-cinema-wordmark{width:100%}.fy-cinema-description{font-size:12px}.fy-cinema-signature{width:205px;height:65px}.fy-cinema-link{gap:20px;font-size:10px}.fy-cinema-flight-1{top:8%;left:45%;width:85px}.fy-cinema-flight-2{right:22%;bottom:13%;width:95px}.fy-cinema-flight-3{left:7%;bottom:17%;width:60px}.fy-cinema-foot{font-size:7px;bottom:22px;gap:10px}.fy-perch{width:105px}.fy-perch-pack-top,.fy-perch-print-top{top:-30px}.fy-perch-post-top{left:0;top:-25px}.fy-finale-painted-left{width:145px;top:210px;left:-25px}.fy-finale-painted-right{width:140px;top:370px;right:-30px}.fy-finale-bird-1{width:80px;left:4%;top:50px}.fy-finale-bird-2{width:90px;right:2%;top:80px}.fy-finale-bird-3{width:75px;left:12%;bottom:4px}.fy-finale-bird-4{width:70px;right:12%;bottom:0}}
+@media(max-width:560px){.fy-hero.fy-cinematic{min-height:730px;max-height:850px}.fy-cinema-layout{display:block;position:absolute;inset:0;margin:auto;width:calc(100% - 48px)}.fy-cinema-intro{position:absolute;top:87px;left:0;width:235px;max-width:72%;padding:0;z-index:6}.fy-cinema-signature{width:180px;height:56px;margin-top:10px;margin-bottom:0}.fy-cinema-description{margin-top:0!important;position:absolute;top:calc(100svh - 323px);left:0;font-size:11px;line-height:1.9;width:180px}.fy-cinema-link{position:absolute;top:calc(100svh - 276px);left:0;white-space:nowrap;margin-top:18px;font-size:10px;gap:24px;padding-bottom:6px}.fy-cinema-arrow{width:31px;height:31px;font-size:15px}.fy-cinema-dove{width:124vw;right:-32%;top:27%;max-width:570px;z-index:3}.fy-cinema-light{background:linear-gradient(90deg,#29351f90,#303b2330 60%,transparent),radial-gradient(ellipse at 95% 30%,#f8e7ad3a,transparent 65%)}.fy-cinema-overline{top:29px;font-size:7px;letter-spacing:.12em;gap:15px}.fy-cinema-overline>span:last-child{font-size:10px;letter-spacing:0}.fy-cinema-foot{bottom:20px;padding-top:12px;display:flex;flex-wrap:wrap;gap:5px;font-size:7px;line-height:1.8}.fy-cinema-foot>span{display:block;width:100%}.fy-cinema-foot .fy-cinema-scroll{display:none}.fy-cinema-flight-1{left:auto;right:4%;top:11%;width:65px}.fy-cinema-flight-2{right:7%;bottom:13%;width:65px}.fy-cinema-flight-3{left:3%;top:49%;bottom:auto;width:50px;opacity:.45}.fy-perch{width:83px}.fy-perch-identity{left:-8px;top:0;width:95px}.fy-perch-pack-top{top:-13px;right:0;width:85px}.fy-perch-pack-low{left:-15px;bottom:50px;width:75px}.fy-perch-print-top{right:0;top:-18px;width:95px}.fy-perch-print-low{left:-14px;bottom:50px;width:80px}.fy-perch-post-top{left:auto;right:0;top:-15px;width:85px}.fy-perch-post-low{right:-12px;bottom:-20px;width:80px}.fy-finale-painted-left{width:100px;left:-30px;top:205px}.fy-finale-painted-right{width:95px;right:-25px;top:370px}.fy-finale-bird-1{width:65px;left:-10px;top:30px}.fy-finale-bird-2{width:67px;right:-5px;top:70px}.fy-finale-bird-3{width:60px;left:5%;bottom:-3px}.fy-finale-bird-4{width:57px;right:5%;bottom:-5px}}
+@media(max-width:360px){.fy-cinema-intro{top:85px;width:218px}.fy-cinema-dove{top:29%;right:-34%;width:128vw}.fy-cinema-description{top:calc(100svh - 321px)}.fy-cinema-link{top:calc(100svh - 274px)}.fy-cinema-overline>span:last-child{display:none}}
+@media(prefers-reduced-motion:reduce){.fy-cinematic *,.fy-perch,.fy-finale-painted img{animation:none!important;transition:none!important}.fy-cinematic .fy-oil-bg,.fy-cinema-dove{transform:none}.fy-cinema-dove img{transform:rotate(-4deg)}.fy-cinema-dust{display:none}.fy-perch{transform:scaleX(var(--perch-direction,1))}}
+
+@media(min-width:761px){.fy-cinema-flight-1{left:42%;top:3%;width:95px}.fy-cinema-flight-2{left:23%;right:auto;top:10%;bottom:auto;width:60px}}
+
+.fy-cinema-brand{display:contents}
+@media(max-width:560px){.fy-cinema-intro{position:static;width:auto;max-width:none}.fy-cinema-brand{display:block;position:absolute;top:87px;left:0;width:235px;max-width:72%}.fy-cinema-description{top:auto;bottom:144px;margin:0!important}.fy-cinema-link{top:auto;bottom:79px;margin:0}.fy-cinema-dove{top:29%}}
+@media(max-width:360px){.fy-cinema-brand{top:85px;width:218px}}
+
+@media(max-width:560px){.fy-finale-painted-left{left:-55px;top:280px;width:95px}}
+
+@media(max-width:560px){.fy-finale-bird-1{top:0;left:-8px;width:55px}.fy-finale-bird-2{top:10px;right:-10px;width:52px}.fy-finale-painted-right{right:-42px;top:355px;width:75px}}

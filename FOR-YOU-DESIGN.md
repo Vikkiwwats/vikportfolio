@@ -113,3 +113,17 @@ Use case: product-mockup. Asset: high resolution editorial photograph for an exi
 Use case: product-mockup. Asset: high resolution quiet editorial macro product photograph, horizontal 3:2. Image 1: exact business card logo design from designer; show only FRONT side as reference in its upper half, remove reverse card and QR from composition entirely. Image 2: exact custom connected f.you logo geometry for strict identity fidelity, NOT typeset FOR YOU. One single elegant business card made of thick ivory natural cotton designer cardstock (600gsm), on a softly folded ivory linen surface with a subtle olive envelope corner far behind. Card lies naturally on fabric in a restrained three-quarter view; entire card visible, fills 65% composition width. Use ONLY the original custom gold mark from front of image 1 centered on card, generous white margin, without subtitle as on original front. Logo is genuine gold foil embossing pressed into cotton designer paper, subtle debossed edges with microscopic paper compression, metal foil reflects soft window light in restrained warm satin highlights, natural tiny grain, exact curves and proportions. Real tactile paper fibers, clean real cardstock edge, plausible contact shadow, sophisticated museum print photographer aesthetic. NO hands, NO second card, NO reverse side, NO QR, NO added words or ornaments, NO raised 3D metal badge, NO pasted logo, NO generic fonts, no skewed/distorted mark, no glossy laminated paper, no excessive dramatic shine.
 ```
 
+
+
+## Новый первый экран: живописная композиция
+
+Первый блок полностью заменён асимметричной композицией с исходным светлым знаком слева и крупным живописным голубем справа. Сохранён масляный фон `assets/images/for-you/enchanted-oil-sky.webp`. Ветви вокруг букв и их анимация удалены. Вместо закрепления блока используется обычная прокрутка, мягкое движение голубя и параллакс фона. Маленькие голуби меняют позы крыльев; анимация останавливается кнопкой паузы и учитывает настройки уменьшенного движения.
+
+В галереи добавлено семь тёмных птичек на коротких веточках, в заключение — шесть голубей. Существующие работы, подписи, ссылки и порядок галерей сохранены.
+
+Новый файл: `assets/images/for-you/cinematic-songbird-perch.webp` (1536 × 1024, прозрачность сохранена). Создан встроенным инструментом генерации изображений (built-in tool mode). Исходная иллюстрация птиц использована как образец стилистики.
+
+```text
+Use case: illustration-story. Asset: a single small decorative songbird perched on a short branch, for an elegant olive and ivory fashion portfolio. Reference image: existing four pose atlas is STYLE and SPECIES reference only. Output ONE bird, ONE pose, NOT an atlas. Recreate the small dark charcoal and warm muted gold songbird in the top-left pose, wings folded naturally, looking to the right. Delicate oil painting on canvas aesthetics, refined dark feather details with restrained champagne-gold highlights. Its tiny feet realistically grasp a short slender natural twig in aged muted gold, a few tiny olive-gold leaves at the very ends only. Twig extends horizontally about two bird body lengths, a subtle organic diagonal with fine branching, no wreath. Show entire bird, tail, feet and complete twig with generous clear space on all sides. Isolated genuine transparent background. No background scenery, no rectangle, no text, no logo, no cast shadow, no frame, no shiny chrome, no decorative circle. The illustration must be beautiful at 100px size. Keep natural proportions and painterly texture.
+```
+
