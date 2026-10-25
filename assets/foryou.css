@@ -114,3 +114,6 @@ html.fy-document{scroll-behavior:smooth;scroll-padding-top:96px;background:#eee8
 
 /* Reduce the hero mark by exactly 25% while preserving the surrounding layout. */
 .fy-cinematic .fy-cinema-wordmark{transform:scale(.75);transform-origin:left center}
+
+/* White author mark in the fixed project navigation. */
+.fy-page .fy-nav-brand img{filter:brightness(0) invert(1)}
