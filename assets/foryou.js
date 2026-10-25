@@ -40,7 +40,32 @@
       layer.style.opacity = opacity.toFixed(3);
     });
   };
+
+  const hero = document.querySelector('.fy-hero');
+  const stage = document.querySelector('.fy-hero-inner');
+  const stems = [...document.querySelectorAll('[data-grow-stem]')];
+  const leaves = [...document.querySelectorAll('[data-grow-leaf]')];
+  let lastGrowth = -1;
+  const paintGrowth = () => {
+    if (!hero || !stage || (paused && !reduced.matches)) return;
+    const distance = Math.max(1, hero.offsetHeight - stage.offsetHeight);
+    const top = hero.getBoundingClientRect().top - parseFloat(getComputedStyle(stage).top || 0);
+    const growth = reduced.matches || !root.classList.contains('fy-js') ? 1 : Math.max(0, Math.min(1, -top / distance));
+    if (Math.abs(growth-lastGrowth) < .001) return;
+    lastGrowth = growth;
+    stems.forEach(el => {
+      const p = Math.max(0, Math.min(1, (growth - Number(el.dataset.start)) / Number(el.dataset.duration)));
+      el.style.strokeDashoffset = (1-p).toFixed(4);
+    });
+    leaves.forEach(el => {
+      const p = Math.max(0, Math.min(1, (growth - Number(el.dataset.at) + .06) / .1));
+      const eased = p*p*(3-2*p);
+      el.setAttribute('transform', `scale(${eased.toFixed(3)})`);
+      el.setAttribute('opacity', eased.toFixed(3));
+    });
+  };
   const paintBirds = stamp => {
+    paintGrowth();
     animation = 0;
     const active = !isStill() && !document.hidden;
     if (active && lastPaint) clock += Math.min(50, stamp - lastPaint);
