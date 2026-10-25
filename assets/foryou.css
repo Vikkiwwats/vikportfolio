@@ -111,3 +111,6 @@ html.fy-document{scroll-behavior:smooth;scroll-padding-top:96px;background:#eee8
 @media(max-width:560px){.fy-finale-painted-left{left:-55px;top:280px;width:95px}}
 
 @media(max-width:560px){.fy-finale-bird-1{top:0;left:-8px;width:55px}.fy-finale-bird-2{top:10px;right:-10px;width:52px}.fy-finale-painted-right{right:-42px;top:355px;width:75px}}
+
+/* Reduce the hero mark by exactly 25% while preserving the surrounding layout. */
+.fy-cinematic .fy-cinema-wordmark{transform:scale(.75);transform-origin:left center}

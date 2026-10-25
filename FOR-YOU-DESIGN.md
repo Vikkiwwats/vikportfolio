@@ -127,3 +127,8 @@ Use case: product-mockup. Asset: high resolution quiet editorial macro product p
 Use case: illustration-story. Asset: a single small decorative songbird perched on a short branch, for an elegant olive and ivory fashion portfolio. Reference image: existing four pose atlas is STYLE and SPECIES reference only. Output ONE bird, ONE pose, NOT an atlas. Recreate the small dark charcoal and warm muted gold songbird in the top-left pose, wings folded naturally, looking to the right. Delicate oil painting on canvas aesthetics, refined dark feather details with restrained champagne-gold highlights. Its tiny feet realistically grasp a short slender natural twig in aged muted gold, a few tiny olive-gold leaves at the very ends only. Twig extends horizontally about two bird body lengths, a subtle organic diagonal with fine branching, no wreath. Show entire bird, tail, feet and complete twig with generous clear space on all sides. Isolated genuine transparent background. No background scenery, no rectangle, no text, no logo, no cast shadow, no frame, no shiny chrome, no decorative circle. The illustration must be beautiful at 100px size. Keep natural proportions and painterly texture.
 ```
 
+
+
+## Уточнение размера и цвета знака
+
+В первом экране знак уменьшен на 25% по ширине и высоте без изменения занимаемого места в раскладке. Используется исходная авторская маска с золотой градиентной заливкой: `assets/for-you-logo.svg`. Композиция, подпись, фон, голуби и анимация сохранены.
